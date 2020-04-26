@@ -4,7 +4,7 @@ package cn.jzyan.bean.constant;
  * @ProjectName : online-shop
  * @FileName : ErrorCodeEnum
  * @Version : 1.0.0
- * @Package : cn.jzyan.user.constant
+ * @Package : cn.jzyan.bean
  * @Description : 统一返回码
  * @Author : jzyan
  * @CreateDate : 2019/04/17 20:47

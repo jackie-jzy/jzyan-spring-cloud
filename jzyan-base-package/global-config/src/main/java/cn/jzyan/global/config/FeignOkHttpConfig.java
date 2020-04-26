@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * @ProjectName : jzyan-base-dependency
  * @FileName : FeignOkHttpConfig
  * @Version : 1.0.0
- * @Package : cn.jzyan.ribbon.config
+ * @Package : cn.jzyan.global.config
  * @Description : FeignOkHttpConfig
  * @Author : jzyan
  * @CreateDate : 2020/04/24 14:09

@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @ProjectName : online-shop
  * @FileName : RestResponse
  * @Version : 1.0
- * @Package : com.juzifenqi.onshop.bean.result
+ * @Package : cn.jzyan.bean
  * @Description : 接口统一出参
  * @Author : jzyan
  * @CreateDate : 2020/02/04 14:23

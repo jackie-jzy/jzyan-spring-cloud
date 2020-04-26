@@ -12,7 +12,7 @@ import java.math.RoundingMode;
  * @ProjectName : online-shop
  * @FileName : CustomerBigDecimalSerialize
  * @Version : 1.0
- * @Package : com.juzifenqi.onweb.config
+ * @Package : cn.jzyan.bean
  * @Description : 自定义 BigDecimal处理
  * @Author : jzyan
  * @CreateDate : 2020/04/10 14:28
