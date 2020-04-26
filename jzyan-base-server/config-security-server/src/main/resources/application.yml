@@ -1,1 +1,30 @@
+server:
+  port: 8103
 
+spring:
+  application:
+    name: config-security-server
+  cloud:
+    config:
+      server:
+        git:
+          # 配置存储配置信息的Git仓库
+          uri: https://github.com/jackie-jzy/springcloud-config.git
+          username: misterjzy@gmail.com
+          password: jackie@110
+          # 开启启动时直接从git获取配置
+          clone-on-start: true
+          # 获取子目录下的配置
+          search-paths: '{application}'
+  security:
+    user:
+      # 配置用户名和密码
+      name: root
+      password: root
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://root:root@replica1:8101/eureka/,http://root:root@replica2:8102/eureka/
