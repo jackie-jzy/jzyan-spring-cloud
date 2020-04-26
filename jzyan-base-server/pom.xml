@@ -19,7 +19,6 @@
         <module>config-security-server</module>
         <module>hystrix-service</module>
         <module>sentinel-service</module>
-        <module>util-service</module>
     </modules>
 
     <dependencies>
