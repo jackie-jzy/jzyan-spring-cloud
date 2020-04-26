@@ -1,0 +1,5 @@
+# Project exclude paths
+/jzyan-base-package/base-bean/target/
+/jzyan-base-package/global-config/target/
+/jzyan-user-cloud/user-api/target/
+/jzyan-user-cloud/user-bean/target/

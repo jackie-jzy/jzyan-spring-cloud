@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: @profileActive@
+
+feign:
+  okhttp:
+    enabled: true
+    readTimeout: 6000
+    connectTimeout: 3000
+    writeTimeout: 6000
+    maxIdleConnections: 50
+    keepAliveDuration: 10

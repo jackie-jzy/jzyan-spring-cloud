@@ -1,0 +1,17 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: user-local-service
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://root:root@replica1:8001/eureka/,http://root:root@replica2:8002/eureka/
+
+logging:
+  level:
+    root: debug

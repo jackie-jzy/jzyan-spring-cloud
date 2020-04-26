@@ -1,0 +1,36 @@
+{
+  "groups": [
+    {
+      "name": "feign.okhttp",
+      "type": "cn.jzyan.global.properties.FeignOkHttpProperties",
+      "sourceType": "cn.jzyan.global.properties.FeignOkHttpProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "feign.okhttp.readTimeout",
+      "type": "java.lang.Long",
+      "sourceType": "cn.jzyan.global.properties.FeignOkHttpProperties"
+    },
+    {
+      "name": "feign.okhttp.connectTimeout",
+      "type": "java.lang.Long",
+      "sourceType": "cn.jzyan.global.properties.FeignOkHttpProperties"
+    },
+    {
+      "name": "feign.okhttp.writeTimeout",
+      "type": "java.lang.Long",
+      "sourceType": "cn.jzyan.global.properties.FeignOkHttpProperties"
+    },
+    {
+      "name": "feign.okhttp.maxIdleConnections",
+      "type": "java.lang.Integer",
+      "sourceType": "cn.jzyan.global.properties.FeignOkHttpProperties"
+    },
+    {
+      "name": "feign.okhttp.keepAliveDuration",
+      "type": "java.lang.Long",
+      "sourceType": "cn.jzyan.global.properties.FeignOkHttpProperties"
+    }
+  ]
+}

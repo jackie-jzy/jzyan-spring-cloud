@@ -1,0 +1,20 @@
+server:
+  port: 8006
+
+logging:
+  level:
+    root: info
+
+spring:
+  application:
+    name: ribbon-local-service
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://root:root@replica1:8001/eureka/,http://root:root@replica2:8002/eureka/
+
+user-service:
+  name: user-local-service
