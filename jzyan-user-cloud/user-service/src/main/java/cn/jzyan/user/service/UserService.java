@@ -8,7 +8,7 @@ import cn.jzyan.user.bean.vo.UserVO;
 import java.util.List;
 
 /**
- * @ProjectName : jzyan-base-dependency
+ * @ProjectName : jzyan-user-cloud
  * @FileName : UserService
  * @Version : 1.0.0
  * @Package : cn.jzyan.user.service

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @ProjectName : jzyan-base-dependency
+ * @ProjectName : jzyan-user-cloud
  * @FileName : UserVO
  * @Version : 1.0.0
  * @Package : cn.jzyan.user.bean.vo

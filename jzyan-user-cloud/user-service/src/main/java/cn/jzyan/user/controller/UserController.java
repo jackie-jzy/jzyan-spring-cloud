@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @ProjectName : jzyan-base-dependency
+ * @ProjectName : jzyan-user-cloud
  * @FileName : UserController
  * @Version : 1.0.0
  * @Package : cn.jzyan.user.controller

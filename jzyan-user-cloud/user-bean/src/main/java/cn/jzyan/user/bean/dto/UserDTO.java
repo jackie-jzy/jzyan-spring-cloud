@@ -3,7 +3,7 @@ package cn.jzyan.user.bean.dto;
 import java.io.Serializable;
 
 /**
- * @ProjectName : jzyan-base-dependency
+ * @ProjectName : jzyan-user-cloud
  * @FileName : UserDTO
  * @Version : 1.0.0
  * @Package : cn.jzyan.user.bean.dto

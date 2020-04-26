@@ -1,7 +1,7 @@
 package cn.jzyan.user.constant;
 
 /**
- * @ProjectName : online-shop
+ * @ProjectName : jzyan-user-cloud
  * @FileName : ErrorCodeEnum
  * @Version : 1.0.0
  * @Package : cn.jzyan.user.constant

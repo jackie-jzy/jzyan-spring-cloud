@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @ProjectName : jzyan-base-dependency
+ * @ProjectName : jzyan-user-cloud
  * @FileName : UserServiceImpl
  * @Version : 1.0.0
  * @Package : cn.jzyan.user.service.impl

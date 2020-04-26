@@ -6,10 +6,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * @ProjectName : jzyan-base-dependency
+ * @ProjectName : jzyan-base-server
  * @FileName : WebSecurityConfig
  * @Version : 1.0
- * @Package : com.jzyan.eurekasecurityserver
+ * @Package : cn.jzyan.eurekasecurityserver
  * @Description : 关闭csrf
  * @Author : jzyan
  * @CreateDate : 2020/03/23 11:38

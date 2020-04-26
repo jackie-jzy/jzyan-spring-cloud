@@ -4,7 +4,7 @@ import cn.jzyan.bean.BaseResponse;
 import cn.jzyan.user.constant.ErrorCodeEnum;
 
 /**
- * @ProjectName : jzyan-base-dependency
+ * @ProjectName : jzyan-user-cloud
  * @FileName : RestResponse
  * @Version : 1.0.0
  * @Package : cn.jzyan.user.model

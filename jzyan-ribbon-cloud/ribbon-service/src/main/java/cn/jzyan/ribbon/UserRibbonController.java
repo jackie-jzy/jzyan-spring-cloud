@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * @ProjectName : jzyan-base-dependency
+ * @ProjectName : jzyan-ribbon-cloud
  * @FileName : UserRibbonController
  * @Version : 1.0.0
  * @Package : cn.jzyan.ribbon
