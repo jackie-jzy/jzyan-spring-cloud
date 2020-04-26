@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @ProjectName : global-config
+ * @ProjectName : jzyan-base-package
  * @FileName : GlobalDateFormatConfig
  * @Version : 1.0.0
  * @Package : cn.jzyan.global.config

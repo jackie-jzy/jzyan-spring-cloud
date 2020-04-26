@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 import java.util.UUID;
 
 /**
- * @ProjectName : global-config
+ * @ProjectName : jzyan-base-package
  * @FileName : WebLogAspect
  * @Version : 1.0.0
  * @Package : cn.jzyan.global.aspect

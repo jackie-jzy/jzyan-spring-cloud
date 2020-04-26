@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @ProjectName : jzyan-base-dependency
+ * @ProjectName : jzyan-base-package
  * @FileName : FeignOkHttpConfig
  * @Version : 1.0.0
  * @Package : cn.jzyan.global.config

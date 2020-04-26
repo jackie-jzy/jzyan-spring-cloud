@@ -18,7 +18,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * @ProjectName : online-shop
+ * @ProjectName : jzyan-base-package
  * @FileName : RedisConfig
  * @Version : 1.0
  * @Package : cn.jzyan.global.config

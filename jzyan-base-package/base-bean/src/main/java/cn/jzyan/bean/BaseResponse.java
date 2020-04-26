@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * @ProjectName : online-shop
+ * @ProjectName : jzyan-base-package
  * @FileName : RestResponse
  * @Version : 1.0
  * @Package : cn.jzyan.bean

@@ -1,7 +1,7 @@
 package cn.jzyan.bean.constant;
 
 /**
- * @ProjectName : online-shop
+ * @ProjectName : jzyan-base-package
  * @FileName : ErrorCodeEnum
  * @Version : 1.0.0
  * @Package : cn.jzyan.bean

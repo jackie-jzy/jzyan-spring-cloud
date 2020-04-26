@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * @ProjectName : online-shop
+ * @ProjectName : jzyan-base-package
  * @FileName : CustomerBigDecimalSerialize
  * @Version : 1.0
  * @Package : cn.jzyan.bean
