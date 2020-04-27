@@ -1,4 +1,4 @@
-package cn.jzyan.user.bean.exception;
+package cn.jzyan.bean.exception;
 
 /**
  * @ProjectName : jzyan-spring-cloud

@@ -1,5 +1,6 @@
 package cn.jzyan.user.bean.exception;
 
+import cn.jzyan.bean.exception.SystemException;
 import cn.jzyan.user.bean.constant.ErrorCodeEnum;
 
 /**

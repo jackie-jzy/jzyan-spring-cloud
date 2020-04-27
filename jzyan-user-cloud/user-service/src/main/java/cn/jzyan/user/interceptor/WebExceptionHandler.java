@@ -1,7 +1,7 @@
 package cn.jzyan.user.interceptor;
 
+import cn.jzyan.bean.exception.SystemException;
 import cn.jzyan.user.bean.constant.ErrorCodeEnum;
-import cn.jzyan.user.bean.exception.SystemException;
 import cn.jzyan.user.model.RestResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
