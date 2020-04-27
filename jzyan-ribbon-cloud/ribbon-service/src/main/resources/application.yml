@@ -3,6 +3,8 @@ spring:
     active: @profileActive@
 
 feign:
+  hystrix:
+    enabled: true
   okhttp:
     enabled: true
     readTimeout: 6000

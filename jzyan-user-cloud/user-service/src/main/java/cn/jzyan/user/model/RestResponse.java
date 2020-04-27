@@ -1,7 +1,7 @@
 package cn.jzyan.user.model;
 
 import cn.jzyan.bean.BaseResponse;
-import cn.jzyan.user.constant.ErrorCodeEnum;
+import cn.jzyan.user.bean.constant.ErrorCodeEnum;
 
 /**
  * @ProjectName : jzyan-user-cloud

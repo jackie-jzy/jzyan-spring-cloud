@@ -1,7 +1,9 @@
 package cn.jzyan.user.service.impl;
 
 import cn.jzyan.bean.BaseResponse;
+import cn.jzyan.user.bean.constant.ErrorCodeEnum;
 import cn.jzyan.user.bean.dto.UserDTO;
+import cn.jzyan.user.bean.exception.UserException;
 import cn.jzyan.user.bean.vo.UserVO;
 import cn.jzyan.user.model.RestResponse;
 import cn.jzyan.user.service.UserService;
@@ -25,6 +27,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public BaseResponse<UserVO> get(Integer id) {
+        if (id == 1) {
+            throw new NullPointerException();
+        }
+        if (id == 2) {
+            throw new UserException(ErrorCodeEnum.ERROR_300);
+        }
         UserVO userVO = new UserVO();
         userVO.setId(id);
         userVO.setName("jzyan");

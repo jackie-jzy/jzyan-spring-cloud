@@ -1,6 +1,7 @@
 package cn.jzyan.user.api;
 
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableFeignClients(basePackages = "cn.jzyan.user.api")
+@ComponentScan(basePackages = "cn.jzyan.user.api")
 public class FeignClientAutoConfiguration {
 
 }

@@ -1,4 +1,4 @@
-package cn.jzyan.user.constant;
+package cn.jzyan.user.bean.constant;
 
 /**
  * @ProjectName : jzyan-user-cloud

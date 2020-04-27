@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8101
 
 spring:
   application:
@@ -17,7 +17,7 @@ eureka:
     register-with-eureka: true
     service-url:
       # 注册到另一个Eureka注册中心
-      defaultZone: http://root:root@replica2:8002/eureka/
+      defaultZone: http://root:root@replica2:8102/eureka/
 
 logging:
   level:

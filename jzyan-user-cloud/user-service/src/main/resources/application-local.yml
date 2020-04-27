@@ -10,8 +10,8 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://root:root@replica1:8001/eureka/,http://root:root@replica2:8002/eureka/
+      defaultZone: http://root:root@replica1:8101/eureka/,http://root:root@replica2:8102/eureka/
 
 logging:
   level:
-    root: debug
+    root: INFO

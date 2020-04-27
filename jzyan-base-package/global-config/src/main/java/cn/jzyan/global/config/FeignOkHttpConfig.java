@@ -2,6 +2,7 @@ package cn.jzyan.global.config;
 
 import cn.jzyan.global.properties.FeignOkHttpProperties;
 import feign.Feign;
+import feign.Logger;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.ConnectionPool;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,11 @@ public class FeignOkHttpConfig {
                 .connectionPool(new ConnectionPool(feignOkHttpProperties.getMaxIdleConnections()
                         , feignOkHttpProperties.getKeepAliveDuration(), TimeUnit.MINUTES))
                 .build();
+    }
+
+    @Bean
+    Logger.Level level() {
+        return Logger.Level.FULL;
     }
 
 }

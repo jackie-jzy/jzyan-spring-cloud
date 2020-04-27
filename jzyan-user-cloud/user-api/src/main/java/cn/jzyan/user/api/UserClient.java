@@ -2,7 +2,9 @@ package cn.jzyan.user.api;
 
 import cn.jzyan.bean.BaseResponse;
 import cn.jzyan.user.bean.dto.UserDTO;
+import cn.jzyan.user.bean.exception.UserException;
 import cn.jzyan.user.bean.vo.UserVO;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +22,7 @@ import java.util.List;
  * @Author : jzyan
  * @CreateDate : 2020/04/24 10:25
  */
-@FeignClient("${user-service.name}")
+@FeignClient(value = "${user-service.name}", fallback = UserClientFallback.class)
 public interface UserClient {
 
     @GetMapping("/system/user/get")

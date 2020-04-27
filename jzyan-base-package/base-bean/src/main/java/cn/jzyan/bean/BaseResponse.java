@@ -31,6 +31,11 @@ public class BaseResponse<T> implements Serializable {
         this.message = BaseErrorCodeEnum.SUCCESS.getErrMsg();
     }
 
+    public BaseResponse(BaseErrorCodeEnum baseErrorCodeEnum) {
+        this.code = baseErrorCodeEnum.getErrCode();
+        this.message = baseErrorCodeEnum.getErrMsg();
+    }
+
     public BaseResponse(T data) {
         this.data = data;
         this.code = BaseErrorCodeEnum.SUCCESS.getErrCode();
