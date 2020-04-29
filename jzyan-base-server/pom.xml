@@ -17,7 +17,6 @@
     <modules>
         <module>eureka-security-server</module>
         <module>config-security-server</module>
-        <module>hystrix-service</module>
         <module>sentinel-service</module>
     </modules>
 

@@ -20,6 +20,7 @@
         <module>jzyan-base-server</module>
         <module>jzyan-ribbon-cloud</module>
         <module>jzyan-user-cloud</module>
+        <module>jzyan-oauth2-cloud</module>
     </modules>
 
     <properties>
