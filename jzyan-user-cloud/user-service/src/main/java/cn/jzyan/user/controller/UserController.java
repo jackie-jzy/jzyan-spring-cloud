@@ -5,6 +5,7 @@ import cn.jzyan.user.bean.dto.UserDTO;
 import cn.jzyan.user.bean.vo.UserVO;
 import cn.jzyan.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +34,11 @@ public class UserController {
     @PostMapping("page")
     public BaseResponse<List<UserVO>> page(@RequestBody UserDTO userDTO) {
         return userService.userDTO(userDTO);
+    }
+
+    @GetMapping("getCurrentUser")
+    public Object getCurrentUser(Authentication authentication) {
+        return authentication;
     }
 
 }

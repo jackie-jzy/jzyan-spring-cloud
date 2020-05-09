@@ -1,4 +1,4 @@
-package cn.jzyan.oauth2.user;
+package cn.jzyan.oauth2.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;

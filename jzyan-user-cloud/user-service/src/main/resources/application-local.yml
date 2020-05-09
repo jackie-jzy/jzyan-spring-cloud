@@ -1,9 +1,30 @@
 server:
   port: 8004
+  servlet:
+    session:
+      cookie:
+        # 防止cookie冲突，冲突会导致登录验证不通过
+        name: OAUTH2-CLIENT-SESSIONID
 
 spring:
   application:
     name: user-local-service
+
+oauth2-service-url: http://localhost:8005
+
+security:
+  # 与oauth2-server对应的配置
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: 123456
+      user-authorization-uri: ${oauth2-service-url}/oauth/authorize
+      access-token-uri: ${oauth2-service-url}/oauth/token
+    resource:
+      id: admin
+      user-info-uri: user-info
+    authorization:
+      check-token-access: ${oauth2-service-url}/oauth/token_key
 
 eureka:
   client:

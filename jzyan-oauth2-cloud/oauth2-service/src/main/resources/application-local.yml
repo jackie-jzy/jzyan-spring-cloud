@@ -4,13 +4,10 @@ server:
 spring:
   application:
     name: oauth2-local-service
-
-#eureka:
-#  client:
-#    fetch-registry: true
-#    register-with-eureka: true
-#    service-url:
-#      defaultZone: http://root:root@replica1:8101/eureka/,http://root:root@replica2:8102/eureka/
+  redis:
+    # redis相关配置
+    host: localhost
+    database: 0
 
 logging:
   level:

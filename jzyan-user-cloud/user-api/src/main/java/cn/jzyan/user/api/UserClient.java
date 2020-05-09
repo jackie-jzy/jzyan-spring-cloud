@@ -2,9 +2,7 @@ package cn.jzyan.user.api;
 
 import cn.jzyan.bean.BaseResponse;
 import cn.jzyan.user.bean.dto.UserDTO;
-import cn.jzyan.user.bean.exception.UserException;
 import cn.jzyan.user.bean.vo.UserVO;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

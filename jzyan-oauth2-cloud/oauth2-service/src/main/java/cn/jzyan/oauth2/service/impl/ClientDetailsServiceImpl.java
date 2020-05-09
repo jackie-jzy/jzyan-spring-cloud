@@ -37,10 +37,13 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
         Set<String> scope = new HashSet();
         Set<String> authorizedGrantTypes = new HashSet<>();
         Set<String> registeredRedirectUri = new HashSet<>();
+        Set<String> autoApproveScopes = new HashSet<>();
         scope.add("all");
         authorizedGrantTypes.add("authorization_code");
         authorizedGrantTypes.add("password");
-        registeredRedirectUri.add("http://www.baidu.com");
+        authorizedGrantTypes.add("refresh_token");
+        registeredRedirectUri.add("http://localhost:8004/login");
+        autoApproveScopes.add("all");
 
         BaseClientDetails clientDetail = new BaseClientDetails();
         clientDetail.setClientId("admin");
@@ -50,6 +53,7 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
         clientDetail.setRegisteredRedirectUri(registeredRedirectUri);
         clientDetail.setAccessTokenValiditySeconds(36000);
         clientDetail.setRefreshTokenValiditySeconds(864000);
+        clientDetail.setAutoApproveScopes(autoApproveScopes);
 
         BaseClientDetails clientDetail2 = new BaseClientDetails();
         clientDetail2.setClientId("root");
