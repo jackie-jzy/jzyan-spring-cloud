@@ -59,7 +59,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private AuthorizationCodeServices authorizationCodeServices;
 
-
     @Bean
     public CustomTokenEnhancer customTokenEnhancer() {
         return new CustomTokenEnhancer();
@@ -81,7 +80,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 //配置授权码模式授权码服务,不配置默认为内存模式
                 .authorizationCodeServices(authorizationCodeServices)
                 // 配置grant_type模式，如果不配置则默认使用密码模式、简化模式、验证码模式以及刷新token模式，如果配置了只使用配置中，默认配置失效
-                // 具体可以查询AuthorizationServerEndpointsConfigurer中的getDefaultTokenGranters方法
                 .tokenGranter(tokenGranter(endpoints))
                 // 配置token默认行为
                 .tokenServices(getDefaultTokenServices(endpoints));
@@ -147,7 +145,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     private TokenGranter tokenGranter(AuthorizationServerEndpointsConfigurer endpoints) {
         List<TokenGranter> list = new ArrayList<>();
-        // 这里配置密码模式、刷新token模式、授权码模式、简化模式 可扩展自定义模式
+        // 这里配置密码模式、刷新token模式、授权码模式、简化模式 可扩展自定义模式 具体可以查询AuthorizationServerEndpointsConfigurer中的getDefaultTokenGranters方法
         list.add(new ResourceOwnerPasswordTokenGranter(authenticationManager, endpoints.getTokenServices(), endpoints.getClientDetailsService(), endpoints.getOAuth2RequestFactory()));
         list.add(new RefreshTokenGranter(endpoints.getTokenServices(), endpoints.getClientDetailsService(), endpoints.getOAuth2RequestFactory()));
         list.add(new AuthorizationCodeTokenGranter(endpoints.getTokenServices(), endpoints.getAuthorizationCodeServices(), endpoints.getClientDetailsService(), endpoints.getOAuth2RequestFactory()));

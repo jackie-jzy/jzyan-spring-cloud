@@ -42,7 +42,7 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
         authorizedGrantTypes.add("authorization_code");
         authorizedGrantTypes.add("password");
         authorizedGrantTypes.add("refresh_token");
-        registeredRedirectUri.add("http://localhost:8004/login");
+        registeredRedirectUri.add("http://www.baidu.com");
         autoApproveScopes.add("all");
 
         BaseClientDetails clientDetail = new BaseClientDetails();
