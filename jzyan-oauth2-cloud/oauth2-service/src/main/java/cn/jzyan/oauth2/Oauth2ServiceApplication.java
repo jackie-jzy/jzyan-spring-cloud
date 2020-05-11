@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 /**
  * @author jzyan
  */
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 @SpringBootApplication
 public class Oauth2ServiceApplication {
 
