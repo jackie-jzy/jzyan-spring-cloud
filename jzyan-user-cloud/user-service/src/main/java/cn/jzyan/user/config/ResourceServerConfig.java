@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
@@ -17,12 +18,13 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
  * @FileName : ResourceServerConfig
  * @Version : 1.0.0
  * @Package : cn.jzyan.user.config
- * @Description : TODO
+ * @Description : 资源服务配置
  * @Author : jzyan
  * @CreateDate : 2020/05/06 17:44
  */
 @Configuration
 @EnableResourceServer
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Value("${security.oauth2.client.client-id}")

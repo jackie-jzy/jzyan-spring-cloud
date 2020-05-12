@@ -45,27 +45,27 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
         registeredRedirectUri.add("http://www.baidu.com");
         autoApproveScopes.add("all");
 
-        BaseClientDetails clientDetail = new BaseClientDetails();
-        clientDetail.setClientId("admin");
-        clientDetail.setClientSecret(passwordEncoder.encode("123456"));
-        clientDetail.setScope(scope);
-        clientDetail.setAuthorizedGrantTypes(authorizedGrantTypes);
-        clientDetail.setRegisteredRedirectUri(registeredRedirectUri);
-        clientDetail.setAccessTokenValiditySeconds(36000);
-        clientDetail.setRefreshTokenValiditySeconds(864000);
-        clientDetail.setAutoApproveScopes(autoApproveScopes);
+        BaseClientDetails userClient = new BaseClientDetails();
+        userClient.setClientId("user_client");
+        userClient.setClientSecret(passwordEncoder.encode("123456"));
+        userClient.setScope(scope);
+        userClient.setAuthorizedGrantTypes(authorizedGrantTypes);
+        userClient.setRegisteredRedirectUri(registeredRedirectUri);
+        userClient.setAccessTokenValiditySeconds(36000);
+        userClient.setRefreshTokenValiditySeconds(864000);
+        userClient.setAutoApproveScopes(autoApproveScopes);
 
-        BaseClientDetails clientDetail2 = new BaseClientDetails();
-        clientDetail2.setClientId("root");
-        clientDetail2.setClientSecret(passwordEncoder.encode("123456"));
-        clientDetail2.setScope(scope);
-        clientDetail2.setAuthorizedGrantTypes(authorizedGrantTypes);
-        clientDetail2.setRegisteredRedirectUri(registeredRedirectUri);
-        clientDetail2.setAccessTokenValiditySeconds(36000);
-        clientDetail2.setRefreshTokenValiditySeconds(864000);
+        BaseClientDetails rebbonClient = new BaseClientDetails();
+        rebbonClient.setClientId("rebbon_client");
+        rebbonClient.setClientSecret(passwordEncoder.encode("123456"));
+        rebbonClient.setScope(scope);
+        rebbonClient.setAuthorizedGrantTypes(authorizedGrantTypes);
+        rebbonClient.setRegisteredRedirectUri(registeredRedirectUri);
+        rebbonClient.setAccessTokenValiditySeconds(36000);
+        rebbonClient.setRefreshTokenValiditySeconds(864000);
 
-        clientDetailList.put("admin", clientDetail);
-        clientDetailList.put("root", clientDetail2);
+        clientDetailList.put("user_client", userClient);
+        clientDetailList.put("rebbon_client", rebbonClient);
 
 
     }
