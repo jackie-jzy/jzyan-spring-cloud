@@ -13,12 +13,16 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>oauth2-service</name>
-    <description>Demo project for Spring Boot</description>
+    <description>认证服务器</description>
 
     <dependencies>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
