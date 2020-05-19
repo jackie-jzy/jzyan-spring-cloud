@@ -31,13 +31,17 @@ public class AuthSignatureFilter implements GlobalFilter {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
         log.info("Request: {}", JSON.toJSONString(request));
+
         List<String> httpHeaders = request.getHeaders().get(HttpHeaders.AUTHORIZATION);
         //转发添加 Authorization认证header头
-        String authorization;
+        String authorization = null;
         if (httpHeaders != null) {
             authorization = httpHeaders.get(0);
         } else {
-            authorization = request.getQueryParams().get(HttpHeaders.AUTHORIZATION).get(0);
+            List<String> queryParams = request.getQueryParams().get(HttpHeaders.AUTHORIZATION);
+            if (queryParams != null) {
+                authorization = queryParams.get(0);
+            }
         }
         ServerWebExchange build = exchange.mutate().request(exchange.getRequest().mutate().header(HttpHeaders.AUTHORIZATION, authorization).build()).build();
         return chain.filter(build);

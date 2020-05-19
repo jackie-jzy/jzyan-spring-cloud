@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @FileName : SecurityConfig
  * @Version : 1.0.0
  * @Package : cn.jzyan.oauth2.config
- * @Description : TODO
+ * @Description : WebSecurityConfig
  * @Author : jzyan
  * @CreateDate : 2020/04/27 17:38
  */

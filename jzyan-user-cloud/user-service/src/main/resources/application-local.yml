@@ -1,25 +1,13 @@
-server:
-  port: 8004
-
 spring:
   application:
     name: user-local-service
 
-oauth2-service-url: http://localhost:8005
-
-security:
-  # 与oauth2-server对应的配置
-  oauth2:
-    client:
-      client-id: user_client
-      client-secret: 123456
-      user-authorization-uri: ${oauth2-service-url}/oauth/authorize
-      access-token-uri: ${oauth2-service-url}/oauth/token
-    resource:
-      id: user_client
-      user-info-uri: user-info
-    authorization:
-      check-token-access: ${oauth2-service-url}/oauth/check_token
+server:
+  port: 8004
+  servlet:
+    session:
+      cookie:
+        name: ${spring.application.name}
 
 eureka:
   client:

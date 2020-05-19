@@ -1,4 +1,4 @@
-package cn.jzyan.ribbon;
+package cn.jzyan.ribbon.controller;
 
 import cn.jzyan.bean.BaseResponse;
 import cn.jzyan.user.api.UserClient;
@@ -30,7 +30,7 @@ public class UserRibbonController {
 
     @GetMapping("get")
     public BaseResponse<UserVO> get(@RequestParam Integer id) {
-        return userClient.get(id);
+        return new BaseResponse(id);
     }
 
     @GetMapping("page")

@@ -23,7 +23,7 @@ public class Test {
     @org.junit.jupiter.api.Test
     public void test(){
         Map<String, String> args = new HashMap<>();
-        args.put("pattern","/ribbon/**");
+        args.put("pattern","/auth/**");
 
         List<PredicateDefinition> predicates = new ArrayList<>();
 
@@ -33,8 +33,8 @@ public class Test {
         predicates.add(predicateDefinition);
 
         GatewayDefine gatewayDefine = new GatewayDefine();
-        gatewayDefine.setRouteId("ribbon_route");
-        gatewayDefine.setUri("lb://ribbon-local-service");
+        gatewayDefine.setRouteId("oauth2_route");
+        gatewayDefine.setUri("lb://oauth2-local-service");
         gatewayDefine.setPredicates(JSON.toJSONString(predicates));
 
         System.out.println(JSON.toJSONString(gatewayDefine));
