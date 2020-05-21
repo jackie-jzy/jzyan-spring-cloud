@@ -19,7 +19,7 @@ import java.util.Map;
  * @FileName : JsonServerAuthenticationEntryPoint
  * @Version : 1.0.0
  * @Package : cn.jzyan.gateway.errer
- * @Description : TODO
+ * @Description : 授权不通过返回401json格式适用前后端分离
  * @Author : jzyan
  * @CreateDate : 2020/05/21 18:28
  */
