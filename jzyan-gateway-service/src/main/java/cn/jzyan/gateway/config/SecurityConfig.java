@@ -1,6 +1,7 @@
 package cn.jzyan.gateway.config;
 
 import cn.jzyan.bean.constant.Constants;
+import cn.jzyan.gateway.errer.JsonServerAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,6 +42,8 @@ public class SecurityConfig {
     RedisConnectionFactory redisConnectionFactory;
     @Autowired
     private AccessManager accessManager;
+    @Autowired
+    private JsonServerAuthenticationEntryPoint JsonServerAuthenticationEntryPoint;
 
     /**
      * 跨域配置
@@ -88,7 +91,9 @@ public class SecurityConfig {
                 // 跨域过滤器
                 .addFilterAt(corsFilter(), SecurityWebFiltersOrder.CORS)
                 //oauth2认证过滤器
-                .addFilterAt(authenticationWebFilter, SecurityWebFiltersOrder.AUTHENTICATION);
+                .addFilterAt(authenticationWebFilter, SecurityWebFiltersOrder.AUTHENTICATION)
+                //授权不通过返回401json格式适用前后端分离
+                .exceptionHandling().authenticationEntryPoint(JsonServerAuthenticationEntryPoint);
         return http.build();
     }
 
