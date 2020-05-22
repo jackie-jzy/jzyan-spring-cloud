@@ -1,10 +1,10 @@
 package cn.jzyan.oauth2.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.security.Principal;
 
 /**
  * @ProjectName : jzyan-spring-cloud
@@ -17,10 +17,11 @@ import java.security.Principal;
  */
 @Slf4j
 @RestController
+@RequestMapping("/auth")
 public class AuthenticationController {
 
-    @GetMapping("user")
-    public Object userInfo(Principal user) {
+    @PostMapping("/web/login")
+    public Object webLogin(User user) {
         log.info("user:{}", user);
         return user;
     }
