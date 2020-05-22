@@ -1,6 +1,6 @@
 package cn.jzyan.oauth2;
 
-import cn.jzyan.oauth2.entity.User;
+import cn.jzyan.oauth2.entity.SystemUser;
 import cn.jzyan.oauth2.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class UserServiceTest extends Oauth2ServiceApplicationTests {
 
     @Test
     public void save() {
-        User user = new User();
+        SystemUser user = new SystemUser();
         for (int i = 0; i < 2; i++) {
             user.setPassword("123456");
             user.setLogin("andy" + i);

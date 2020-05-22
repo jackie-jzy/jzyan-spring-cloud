@@ -1,14 +1,17 @@
 package cn.jzyan.oauth2.service.impl;
 
-import cn.jzyan.oauth2.entity.User;
+import cn.jzyan.oauth2.entity.SystemUser;
 import cn.jzyan.oauth2.repository.UserRepository;
 import cn.jzyan.oauth2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.HashSet;
 
 /**
  * @ProjectName : jzyan-spring-cloud
@@ -29,16 +32,16 @@ public class UserDetailsServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByLogin(username);
+        SystemUser user = userRepository.findByLogin(username);
         if (user != null) {
-            return user;
+            return new User(user.getLogin(), user.getPassword(), new HashSet<>());
         } else {
             throw new UsernameNotFoundException("用户不存在");
         }
     }
 
     @Override
-    public User save(User user) {
+    public SystemUser save(SystemUser user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }

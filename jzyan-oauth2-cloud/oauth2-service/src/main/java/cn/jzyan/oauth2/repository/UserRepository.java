@@ -1,6 +1,6 @@
 package cn.jzyan.oauth2.repository;
 
-import cn.jzyan.oauth2.entity.User;
+import cn.jzyan.oauth2.entity.SystemUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
@@ -18,13 +18,13 @@ import java.util.Optional;
  * @CreateDate : 2020/05/15 10:21
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
+public interface UserRepository extends JpaRepository<SystemUser, Integer>, JpaSpecificationExecutor<SystemUser> {
 
     @Override
-    List<User> findAll();
+    List<SystemUser> findAll();
 
     @Override
-    User save(User user);
+    SystemUser save(SystemUser user);
 
     @Override
     boolean existsById(Integer id);
@@ -33,8 +33,8 @@ public interface UserRepository extends JpaRepository<User, Integer>, JpaSpecifi
     void deleteById(Integer id);
 
     @Override
-    Optional<User> findById(Integer id);
+    Optional<SystemUser> findById(Integer id);
 
-    User findByLogin(String login);
+    SystemUser findByLogin(String login);
 
 }

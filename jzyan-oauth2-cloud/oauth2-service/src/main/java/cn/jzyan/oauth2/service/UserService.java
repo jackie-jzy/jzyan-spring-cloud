@@ -1,6 +1,6 @@
 package cn.jzyan.oauth2.service;
 
-import cn.jzyan.oauth2.entity.User;
+import cn.jzyan.oauth2.entity.SystemUser;
 
 /**
  * @ProjectName : jzyan-spring-cloud
@@ -13,5 +13,5 @@ import cn.jzyan.oauth2.entity.User;
  */
 public interface UserService {
 
-    User save(User user);
+    SystemUser save(SystemUser user);
 }
