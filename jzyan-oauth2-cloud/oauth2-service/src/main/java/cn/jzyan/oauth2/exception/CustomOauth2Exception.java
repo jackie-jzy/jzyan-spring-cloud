@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
  * @FileName : UserException
  * @Version : 1.0.0
  * @Package : cn.jzyan.oauth2.exception
- * @Description : 认证用户异常
+ * @Description : 认证异常
  * @Author : jzyan
  * @CreateDate : 2020/05/23 10:32
  */
