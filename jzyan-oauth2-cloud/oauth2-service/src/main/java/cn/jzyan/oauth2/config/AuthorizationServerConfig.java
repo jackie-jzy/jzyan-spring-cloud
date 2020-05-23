@@ -16,6 +16,7 @@ import org.springframework.security.oauth2.provider.CompositeTokenGranter;
 import org.springframework.security.oauth2.provider.TokenGranter;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeTokenGranter;
+import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
 import org.springframework.security.oauth2.provider.implicit.ImplicitTokenGranter;
 import org.springframework.security.oauth2.provider.password.ResourceOwnerPasswordTokenGranter;
 import org.springframework.security.oauth2.provider.refresh.RefreshTokenGranter;
@@ -57,6 +58,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private JwtAccessTokenConverter jwtAccessTokenConverter;
     @Autowired
     private AuthorizationCodeServices authorizationCodeServices;
+    @Autowired
+    @Qualifier("customOauthExceptionTranslator")
+    private WebResponseExceptionTranslator customOauthExceptionTranslator;
 
     @Bean
     public CustomTokenEnhancer customTokenEnhancer() {
@@ -78,6 +82,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .tokenEnhancer(getTokenEnhancerChain())
                 //配置授权码模式授权码服务,不配置默认为内存模式
                 .authorizationCodeServices(authorizationCodeServices)
+                //自定义异常输出
+                .exceptionTranslator(customOauthExceptionTranslator)
                 // 配置grant_type模式，如果不配置则默认使用密码模式、简化模式、验证码模式以及刷新token模式，如果配置了只使用配置中，默认配置失效
                 .tokenGranter(tokenGranter(endpoints))
                 // 配置token默认行为

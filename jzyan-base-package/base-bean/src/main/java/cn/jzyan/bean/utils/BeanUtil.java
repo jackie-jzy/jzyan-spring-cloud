@@ -1,4 +1,4 @@
-package cn.jzyan.gateway.util;
+package cn.jzyan.bean.utils;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;

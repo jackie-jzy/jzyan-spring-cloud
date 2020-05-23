@@ -1,10 +1,10 @@
 package cn.jzyan.gateway.service.impl;
 
+import cn.jzyan.bean.utils.BeanUtil;
 import cn.jzyan.gateway.entity.GatewayDefine;
 import cn.jzyan.gateway.repository.GatewayDefineRepository;
 import cn.jzyan.gateway.repository.RedisRouteDefinitionRepository;
 import cn.jzyan.gateway.service.GatewayDefineService;
-import cn.jzyan.gateway.util.BeanUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.FilterDefinition;

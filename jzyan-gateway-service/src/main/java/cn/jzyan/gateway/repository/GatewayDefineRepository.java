@@ -2,6 +2,7 @@ package cn.jzyan.gateway.repository;
 
 import cn.jzyan.gateway.entity.GatewayDefine;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.Optional;
  * @CreateDate : 2020/05/15 10:21
  */
 @Repository
-public interface GatewayDefineRepository extends JpaRepository<GatewayDefine, Integer> {
+public interface GatewayDefineRepository extends JpaRepository<GatewayDefine, Integer>, JpaSpecificationExecutor<GatewayDefine> {
 
     @Override
     List<GatewayDefine> findAll();
