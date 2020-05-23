@@ -50,7 +50,7 @@ public class GatewayDefineServiceTest extends GatewayServiceApplicationTests {
     @Test
     public void updateTest(){
         Map<String, String> args = new HashMap<>();
-        args.put("pattern","/oauth/**");
+        args.put("pattern","/auth/**");
 
         List<PredicateDefinition> predicates = new ArrayList<>();
 

@@ -17,7 +17,7 @@ import java.math.RoundingMode;
  * @Author : jzyan
  * @CreateDate : 2020/04/10 14:28
  */
-public class CustomerBigDecimalSerialize extends JsonSerializer<BigDecimal> {
+public class CustomBigDecimalSerialize extends JsonSerializer<BigDecimal> {
     /**
      * Method that can be called to ask implementation to serialize
      * values of type this serializer handles.

@@ -5,7 +5,6 @@ spring:
   application:
     name: gateway-service
   redis:
-    # redisÏà¹ØÅäÖÃ
     host: localhost
     database: 0
   datasource:
@@ -20,21 +19,21 @@ spring:
           enabled: true
           lower-case-service-id: true
 #      routes:
-#        # Â·ÓÉµÄID
+#        # è·¯ç”±çš„ID
 #        - id: ribbon_route
-#          # Æ¥ÅäºóÂ·ÓÉµØÖ·
+#          # åŒ¹é…åè·¯ç”±åœ°å€
 #          uri: lb://ribbon-local-service
 #          predicates:
-#            # ¶ÏÑÔ£¬Â·¾¶ÏàÆ¥ÅäµÄ½øĞĞÂ·ÓÉ
+#            # æ–­è¨€ï¼Œè·¯å¾„ç›¸åŒ¹é…çš„è¿›è¡Œè·¯ç”±
 #            - Path=/ribbon/**
 #          filters:
 #            - name: RequestRateLimiter
 #              args:
-#                # Ã¿ÃëÔÊĞí´¦ÀíµÄÇëÇóÊıÁ¿
+#                # æ¯ç§’å…è®¸å¤„ç†çš„è¯·æ±‚æ•°é‡
 #                redis-rate-limiter.replenishRate: 1
-#                # Ã¿Ãë×î´ó´¦ÀíµÄÇëÇóÊıÁ¿
+#                # æ¯ç§’æœ€å¤§å¤„ç†çš„è¯·æ±‚æ•°é‡
 #                redis-rate-limiter.burstCapacity: 2
-#                # ÏŞÁ÷²ßÂÔ£¬¶ÔÓ¦²ßÂÔµÄBean
+#                # é™æµç­–ç•¥ï¼Œå¯¹åº”ç­–ç•¥çš„Bean
 #                key-resolver: '#{@ipKeyResolver}'
 #            - name: Hystrix
 #              args:
@@ -42,8 +41,8 @@ spring:
 #                fallback-uri: forward:/fallback
 #            - name: Retry
 #              args:
-#                retries: 1 #ĞèÒª½øĞĞÖØÊÔµÄ´ÎÊı
-#                statuses: BAD_GATEWAY #·µ»ØÄÄ¸ö×´Ì¬ÂëĞèÒª½øĞĞÖØÊÔ£¬·µ»Ø×´Ì¬ÂëÎª5XX½øĞĞÖØÊÔ
+#                retries: 1 #éœ€è¦è¿›è¡Œé‡è¯•çš„æ¬¡æ•°
+#                statuses: BAD_GATEWAY #è¿”å›å“ªä¸ªçŠ¶æ€ç éœ€è¦è¿›è¡Œé‡è¯•ï¼Œè¿”å›çŠ¶æ€ç ä¸º5XXè¿›è¡Œé‡è¯•
 #                backoff:
 #                  firstBackoff: 10ms
 #                  maxBackoff: 50ms
