@@ -1,4 +1,4 @@
-package cn.jzyan.oauth2.errer;
+package cn.jzyan.oauth2.error;
 
 import cn.jzyan.oauth2.exception.CustomOauth2Exception;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -29,9 +29,14 @@ public class CustomOauth2ExceptionJacksonSerializer extends StdSerializer<Custom
         gen.writeStartObject();
         gen.writeObjectField("code", value.getHttpErrorCode());
         String errorMessage = value.getLocalizedMessage();
+        String error = value.getOAuth2ErrorCode();
         if (errorMessage != null) {
             errorMessage = HtmlUtils.htmlEscape(errorMessage);
         }
+        if (error != null) {
+            error = HtmlUtils.htmlEscape(error);
+        }
+        gen.writeStringField("error", error);
         gen.writeStringField("msg", errorMessage);
         gen.writeStringField("data", null);
         if (value.getAdditionalInformation() != null) {

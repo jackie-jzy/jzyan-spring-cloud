@@ -1,4 +1,4 @@
-package cn.jzyan.oauth2.errer;
+package cn.jzyan.oauth2.error;
 
 import cn.jzyan.oauth2.exception.CustomOauth2Exception;
 import org.springframework.http.HttpHeaders;

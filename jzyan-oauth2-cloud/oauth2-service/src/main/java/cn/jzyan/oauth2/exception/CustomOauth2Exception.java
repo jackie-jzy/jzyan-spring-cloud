@@ -1,6 +1,6 @@
 package cn.jzyan.oauth2.exception;
 
-import cn.jzyan.oauth2.errer.CustomOauth2ExceptionJacksonSerializer;
+import cn.jzyan.oauth2.error.CustomOauth2ExceptionJacksonSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 

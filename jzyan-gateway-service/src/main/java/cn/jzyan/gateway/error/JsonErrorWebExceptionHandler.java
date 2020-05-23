@@ -1,4 +1,4 @@
-package cn.jzyan.gateway.errer;
+package cn.jzyan.gateway.error;
 
 import cn.jzyan.bean.exception.SystemException;
 import org.springframework.boot.autoconfigure.web.ErrorProperties;

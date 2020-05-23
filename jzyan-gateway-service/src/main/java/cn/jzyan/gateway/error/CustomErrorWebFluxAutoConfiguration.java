@@ -1,4 +1,4 @@
-package cn.jzyan.gateway.errer;
+package cn.jzyan.gateway.error;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;

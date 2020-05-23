@@ -1,7 +1,7 @@
 package cn.jzyan.gateway.config;
 
 import cn.jzyan.bean.constant.Constants;
-import cn.jzyan.gateway.errer.JsonServerAuthenticationEntryPoint;
+import cn.jzyan.gateway.error.JsonServerAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

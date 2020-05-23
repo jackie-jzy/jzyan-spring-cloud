@@ -1,4 +1,4 @@
-package cn.jzyan.gateway.errer;
+package cn.jzyan.gateway.error;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
