@@ -24,7 +24,7 @@ public class UserServiceTest extends Oauth2ServiceApplicationTests {
         SystemUser user = new SystemUser();
         for (int i = 0; i < 2; i++) {
             user.setPassword("123456");
-            user.setLogin("andy" + i);
+            user.setUsername("andy" + i);
             userService.save(user);
         }
     }

@@ -32,18 +32,24 @@ public class UserDetailsServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        SystemUser user = userRepository.findByLogin(username);
+        SystemUser user = userRepository.findByUsername(username);
         if (user != null) {
-            return new User(user.getLogin(), user.getPassword(), new HashSet<>());
+            return new User(user.getUsername(), user.getPassword(), new HashSet<>());
         } else {
             throw new UsernameNotFoundException("用户不存在");
         }
     }
 
+
     @Override
     public SystemUser save(SystemUser user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
+    }
+
+    @Override
+    public SystemUser findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
 

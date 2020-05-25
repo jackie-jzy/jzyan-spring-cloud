@@ -1,5 +1,7 @@
 package cn.jzyan.oauth2.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 /**
@@ -11,46 +13,16 @@ import javax.persistence.*;
  * @Author : jzyan
  * @CreateDate : 2020/05/22 15:34
  */
+@Data
 @Entity
 @Table(name = "system_user")
-public class SystemUser{
+public class SystemUser {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String password;
-    private String login;
+    private String username;
+    private String name;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    @Override
-    public String toString() {
-        return "SystemUser{" +
-                "id=" + id +
-                ", password='" + password + '\'' +
-                ", login='" + login + '\'' +
-                '}';
-    }
 }

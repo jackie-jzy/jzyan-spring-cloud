@@ -35,6 +35,6 @@ public interface UserRepository extends JpaRepository<SystemUser, Integer>, JpaS
     @Override
     Optional<SystemUser> findById(Integer id);
 
-    SystemUser findByLogin(String login);
+    SystemUser findByUsername(String username);
 
 }

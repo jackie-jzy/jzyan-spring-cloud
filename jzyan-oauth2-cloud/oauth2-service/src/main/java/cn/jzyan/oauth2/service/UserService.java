@@ -13,5 +13,20 @@ import cn.jzyan.oauth2.entity.SystemUser;
  */
 public interface UserService {
 
+    /**
+     * 创建系统用户
+     *
+     * @param user
+     * @return
+     */
     SystemUser save(SystemUser user);
+
+    /**
+     * 获取登录账户获取系统用户
+     *
+     * @param username
+     * @return
+     */
+    SystemUser findByUsername(String username);
+
 }

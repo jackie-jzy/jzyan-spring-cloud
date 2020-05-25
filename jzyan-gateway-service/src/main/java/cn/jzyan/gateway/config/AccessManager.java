@@ -40,6 +40,7 @@ public class AccessManager implements ReactiveAuthorizationManager<Authorization
         permitAll.add("/doc.html");
         permitAll.add("/swagger-ui.html");
         permitAll.add("/**/oauth/**");
+        permitAll.add("/**/login/**");
         permitAll.add("/**/ignore/**");
     }
 

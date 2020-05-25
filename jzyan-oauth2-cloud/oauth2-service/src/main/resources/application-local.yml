@@ -37,3 +37,6 @@ logging:
     org.hibernate.engine.QueryParameters: debug
     org.hibernate.engine.query.HQLQueryPlan: debug
     org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+oauth2:
+  clientId: rebbon_client
