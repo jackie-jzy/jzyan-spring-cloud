@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @ProjectName : jzyan-spring-cloud
@@ -51,8 +52,8 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
         userClient.setScope(scope);
         userClient.setAuthorizedGrantTypes(authorizedGrantTypes);
         userClient.setRegisteredRedirectUri(registeredRedirectUri);
-        userClient.setAccessTokenValiditySeconds(36000);
-        userClient.setRefreshTokenValiditySeconds(864000);
+        userClient.setAccessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(2));
+        userClient.setRefreshTokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30));
         userClient.setAutoApproveScopes(autoApproveScopes);
 
         BaseClientDetails rebbonClient = new BaseClientDetails();
@@ -61,8 +62,8 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
         rebbonClient.setScope(scope);
         rebbonClient.setAuthorizedGrantTypes(authorizedGrantTypes);
         rebbonClient.setRegisteredRedirectUri(registeredRedirectUri);
-        rebbonClient.setAccessTokenValiditySeconds(36000);
-        rebbonClient.setRefreshTokenValiditySeconds(864000);
+        rebbonClient.setAccessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(2));
+        rebbonClient.setRefreshTokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30));
 
         clientDetailList.put("user_client", userClient);
         clientDetailList.put("rebbon_client", rebbonClient);

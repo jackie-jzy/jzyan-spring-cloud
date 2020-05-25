@@ -12,7 +12,7 @@ package cn.jzyan.bean.constant;
 public enum BaseErrorCodeEnum {
 
     SUCCESS(200, "SUCCESS"),
-    FAIL(201, "FAIL");
+    FAIL(500, "服务器异常");
 
     private int errCode;
     private String errMsg;

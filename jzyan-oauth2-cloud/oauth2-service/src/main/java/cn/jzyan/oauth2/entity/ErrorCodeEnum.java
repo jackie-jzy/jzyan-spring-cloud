@@ -11,7 +11,9 @@ package cn.jzyan.oauth2.entity;
  */
 public enum ErrorCodeEnum {
 
-    ERROR_601(601, "账户或密码错误");
+    ERROR_601(601, "账户或密码错误"),
+    ERROR_602(602, "创建Token异常"),
+    ERROR_603(603, "获取认证客户端为null");
 
     private int errCode;
     private String errMsg;
