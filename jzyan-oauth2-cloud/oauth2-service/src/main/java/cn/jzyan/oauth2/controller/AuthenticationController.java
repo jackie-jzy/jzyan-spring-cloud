@@ -23,9 +23,9 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationService authenticationService;
 
-    @PostMapping("/web/login")
-    public BaseResponse loginWeb(@RequestBody LoginRequest loginRequest) {
-        return authenticationService.loginWeb(loginRequest);
+    @PostMapping("/admin/login")
+    public BaseResponse loginAdmin(@RequestBody LoginRequest loginRequest) {
+        return authenticationService.loginAdmin(loginRequest);
     }
 
 

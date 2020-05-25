@@ -20,6 +20,6 @@ public interface AuthenticationService {
      * @param loginRequest
      * @return
      */
-    BaseResponse loginWeb(LoginRequest loginRequest);
+    BaseResponse loginAdmin(LoginRequest loginRequest);
 
 }

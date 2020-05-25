@@ -1,7 +1,6 @@
 package cn.jzyan.oauth2.service.impl;
 
 import cn.jzyan.bean.BaseResponse;
-import cn.jzyan.oauth2.enhancer.CustomTokenEnhancer;
 import cn.jzyan.oauth2.entity.*;
 import cn.jzyan.oauth2.exception.AccessTokenException;
 import cn.jzyan.oauth2.exception.ClientDetailsException;
@@ -49,8 +48,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Qualifier("redisTokenStore")
     private TokenStore tokenStore;
     @Autowired
-    private CustomTokenEnhancer customTokenEnhancer;
-    @Autowired
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
     @Value("${oauth2.clientId}")
@@ -63,7 +60,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
      * @return
      */
     @Override
-    public BaseResponse loginWeb(LoginRequest loginRequest) {
+    public BaseResponse loginAdmin(LoginRequest loginRequest) {
         Map<String, String> parameters = new HashMap<>(4);
         parameters.put("grant_type", "password");
         parameters.put("username", loginRequest.getUsername());
@@ -129,7 +126,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private TokenEnhancerChain getTokenEnhancerChain() {
         TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(
-                Arrays.asList(jwtAccessTokenConverter, customTokenEnhancer));
+                Arrays.asList(jwtAccessTokenConverter));
         return tokenEnhancerChain;
     }
 }
