@@ -22,4 +22,11 @@ public interface AuthenticationService {
      */
     BaseResponse loginAdmin(LoginRequest loginRequest);
 
+    /**
+     * app登录
+     *
+     * @param loginRequest
+     * @return
+     */
+    BaseResponse loginApp(LoginRequest loginRequest);
 }

@@ -24,5 +24,6 @@ public class SystemUser {
     private String password;
     private String username;
     private String name;
+    private String mobile;
 
 }

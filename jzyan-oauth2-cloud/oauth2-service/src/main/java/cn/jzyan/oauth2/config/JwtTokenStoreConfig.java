@@ -1,6 +1,5 @@
 package cn.jzyan.oauth2.config;
 
-import cn.jzyan.oauth2.enhancer.CustomTokenEnhancer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -31,7 +30,7 @@ public class JwtTokenStoreConfig {
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
         // 配置jwt使用的密钥
-        jwtAccessTokenConverter.setSigningKey(SIGNING_KEY);
+//        jwtAccessTokenConverter.setSigningKey(SIGNING_KEY);
         return jwtAccessTokenConverter;
     }
 

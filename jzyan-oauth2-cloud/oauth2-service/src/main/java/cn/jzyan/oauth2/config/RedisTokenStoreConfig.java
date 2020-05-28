@@ -1,6 +1,7 @@
 package cn.jzyan.oauth2.config;
 
 import cn.jzyan.bean.constant.Constants;
+import cn.jzyan.oauth2.enhancer.CustomTokenEnhancer;
 import cn.jzyan.oauth2.service.RedisAuthorizationCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -44,6 +45,11 @@ public class RedisTokenStoreConfig {
         RedisAuthorizationCodeService redisAuthorizationCodeService = new RedisAuthorizationCodeService(redisConnectionFactory);
         redisAuthorizationCodeService.setPrefix(Constants.Oauth.OAUTH_PREFIX);
         return redisAuthorizationCodeService;
+    }
+
+    @Bean
+    public CustomTokenEnhancer customTokenEnhancer() {
+        return new CustomTokenEnhancer();
     }
 
 }

@@ -28,5 +28,10 @@ public class AuthenticationController {
         return authenticationService.loginAdmin(loginRequest);
     }
 
+    @PostMapping("/app/login")
+    public BaseResponse loginApp(@RequestBody LoginRequest loginRequest) {
+        return authenticationService.loginApp(loginRequest);
+    }
+
 
 }

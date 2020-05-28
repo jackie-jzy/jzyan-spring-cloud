@@ -3,7 +3,6 @@ package cn.jzyan.oauth2.entity;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @ProjectName : jzyan-spring-cloud
@@ -19,7 +18,6 @@ public class LoginResponse implements Serializable {
 
     private static final long serialVersionUID = 3079029293380111510L;
 
-    private Integer userId;
     /**
      * token
      */
@@ -32,9 +30,5 @@ public class LoginResponse implements Serializable {
      * token过期时间 seconds
      */
     private Integer expiresIn;
-    /**
-     * 角色
-     */
-    private List roles;
 
 }

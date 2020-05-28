@@ -3,7 +3,6 @@ package cn.jzyan.oauth2.config;
 import cn.jzyan.oauth2.enhancer.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -61,11 +60,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     @Qualifier("customOauthExceptionTranslator")
     private WebResponseExceptionTranslator customOauthExceptionTranslator;
-
-    @Bean
-    public CustomTokenEnhancer customTokenEnhancer() {
-        return new CustomTokenEnhancer();
-    }
+    @Autowired
+    private CustomTokenEnhancer customTokenEnhancer;
 
     /**
      * 使用密码模式需要配置
@@ -109,7 +105,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private TokenEnhancerChain getTokenEnhancerChain() {
         TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(
-                Arrays.asList(jwtAccessTokenConverter, customTokenEnhancer()));
+                Arrays.asList(jwtAccessTokenConverter, customTokenEnhancer));
         return tokenEnhancerChain;
     }
 
