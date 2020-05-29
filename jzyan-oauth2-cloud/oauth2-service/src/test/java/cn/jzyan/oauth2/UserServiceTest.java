@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * @ProjectName : jzyan-spring-cloud
+ * @ProjectName : jzyan-oauth2-cloud
  * @FileName : UserService
  * @Version : 1.0.0
  * @Package : cn.jzyan.oauth2.service
