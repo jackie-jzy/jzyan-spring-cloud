@@ -3,10 +3,10 @@ package cn.jzyan.system;
 import org.apache.commons.lang.ArrayUtils;
 
 /**
- * @ProjectName : jzyan-spring-cloud
+ * @ProjectName : jzyan-system-cloud
  * @FileName : Test
  * @Version : 1.0.0
- * @Package : cn.jzyan.user
+ * @Package : cn.jzyan.system
  * @Description : TODO
  * @Author : jzyan
  * @CreateDate : 2020/05/11 15:28
