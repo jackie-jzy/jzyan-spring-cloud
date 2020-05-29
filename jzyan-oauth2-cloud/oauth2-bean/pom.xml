@@ -4,20 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>cn.jzyan</groupId>
-        <artifactId>jzyan-spring-cloud</artifactId>
+        <artifactId>jzyan-oauth2-cloud</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.jzyan</groupId>
-    <artifactId>jzyan-oauth2-cloud</artifactId>
+    <artifactId>oauth2-bean</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
-    <modules>
-        <module>oauth2-service</module>
-        <module>oauth2-api</module>
-        <module>oauth2-bean</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>cn.jzyan</groupId>
+            <artifactId>base-bean</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

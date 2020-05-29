@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.jzyan.oauth2.api.FeignClientAutoConfiguration
