@@ -5,17 +5,16 @@ import java.time.LocalDateTime;
 
 /**
  * @ProjectName : jzyan-base-package
- * @FileName : BaseModel
+ * @FileName : BaseEntity
  * @Version : 1.0.0
  * @Package : cn.jzyan.bean
  * @Description : 基础
  * @Author : jzyan
  * @CreateDate : 2020/04/24 17:48
  */
-public class BaseModel implements Serializable {
+public class BaseEntity implements Serializable {
 
     private Integer id;
-    private String version;
     private String createUser;
     private String updateUser;
     private LocalDateTime createTime;
@@ -27,14 +26,6 @@ public class BaseModel implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
     }
 
     public String getCreateUser() {
@@ -71,9 +62,8 @@ public class BaseModel implements Serializable {
 
     @Override
     public String toString() {
-        return "BaseModel{" +
+        return "BaseEntity{" +
                 "id=" + id +
-                ", version='" + version + '\'' +
                 ", createUser='" + createUser + '\'' +
                 ", updateUser='" + updateUser + '\'' +
                 ", createTime=" + createTime +
