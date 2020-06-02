@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: oauth2-local-service
+    name: oauth2-service
   redis:
     # redis相关配置
     host: localhost
@@ -40,3 +40,7 @@ logging:
 
 oauth2:
   clientId: rebbon_client
+
+jwt:
+  signing:
+    key: 12345

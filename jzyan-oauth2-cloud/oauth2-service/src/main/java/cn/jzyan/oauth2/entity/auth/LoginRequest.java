@@ -1,4 +1,4 @@
-package cn.jzyan.oauth2.entity;
+package cn.jzyan.oauth2.entity.auth;
 
 import lombok.Data;
 

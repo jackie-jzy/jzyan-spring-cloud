@@ -1,4 +1,4 @@
-package cn.jzyan.oauth2.entity;
+package cn.jzyan.oauth2.entity.user;
 
 import lombok.Data;
 
@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "system_user")
-public class SystemUser {
+public class AdminUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +25,8 @@ public class SystemUser {
     private String username;
     private String name;
     private String mobile;
+    private Integer status;
+    private Integer mark;
+    private Integer platform;
 
 }

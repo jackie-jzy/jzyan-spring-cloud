@@ -1,12 +1,8 @@
 package cn.jzyan.oauth2.repository;
 
-import cn.jzyan.oauth2.entity.SystemUser;
+import cn.jzyan.oauth2.entity.user.AdminUser;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
-import java.util.Optional;
 
 /**
  * @ProjectName : jzyan-spring-cloud
@@ -18,23 +14,8 @@ import java.util.Optional;
  * @CreateDate : 2020/05/15 10:21
  */
 @Repository
-public interface UserRepository extends JpaRepository<SystemUser, Integer>, JpaSpecificationExecutor<SystemUser> {
+public interface UserRepository extends JpaRepository<AdminUser, Integer> {
 
-    @Override
-    List<SystemUser> findAll();
-
-    @Override
-    SystemUser save(SystemUser user);
-
-    @Override
-    boolean existsById(Integer id);
-
-    @Override
-    void deleteById(Integer id);
-
-    @Override
-    Optional<SystemUser> findById(Integer id);
-
-    SystemUser findByUsername(String username);
+    AdminUser findByUsername(String username);
 
 }

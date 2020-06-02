@@ -1,6 +1,6 @@
 package cn.jzyan.oauth2.service.impl;
 
-import cn.jzyan.oauth2.entity.SystemUser;
+import cn.jzyan.oauth2.entity.user.AdminUser;
 import cn.jzyan.oauth2.repository.UserRepository;
 import cn.jzyan.oauth2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -27,12 +26,10 @@ public class UserDetailsServiceImpl implements UserDetailsService, UserService {
 
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        SystemUser user = userRepository.findByUsername(username);
+        AdminUser user = userRepository.findByUsername(username);
         if (user != null) {
             return new User(user.getUsername(), user.getPassword(), new HashSet<>());
         } else {
@@ -40,15 +37,8 @@ public class UserDetailsServiceImpl implements UserDetailsService, UserService {
         }
     }
 
-
     @Override
-    public SystemUser save(SystemUser user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
-    }
-
-    @Override
-    public SystemUser findByUsername(String username) {
+    public AdminUser findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 

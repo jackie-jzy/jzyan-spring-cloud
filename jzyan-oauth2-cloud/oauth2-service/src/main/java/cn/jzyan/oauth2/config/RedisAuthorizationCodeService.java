@@ -1,4 +1,4 @@
-package cn.jzyan.oauth2.service;
+package cn.jzyan.oauth2.config;
 
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;

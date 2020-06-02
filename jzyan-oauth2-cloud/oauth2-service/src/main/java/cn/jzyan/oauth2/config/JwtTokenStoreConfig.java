@@ -1,5 +1,6 @@
 package cn.jzyan.oauth2.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -18,7 +19,9 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
  */
 @Configuration
 public class JwtTokenStoreConfig {
-    private final static String SIGNING_KEY = "test_key";
+
+    @Value("${jwt.signing.key}")
+    private String signingKey;
 
     @Bean
     @Primary
@@ -30,7 +33,7 @@ public class JwtTokenStoreConfig {
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
         // 配置jwt使用的密钥
-//        jwtAccessTokenConverter.setSigningKey(SIGNING_KEY);
+        jwtAccessTokenConverter.setSigningKey(signingKey);
         return jwtAccessTokenConverter;
     }
 

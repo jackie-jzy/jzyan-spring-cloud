@@ -1,7 +1,7 @@
 package cn.jzyan.oauth2.service;
 
 import cn.jzyan.bean.BaseResponse;
-import cn.jzyan.oauth2.entity.LoginRequest;
+import cn.jzyan.oauth2.entity.auth.LoginRequest;
 
 /**
  * @ProjectName : jzyan-spring-cloud

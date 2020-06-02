@@ -1,4 +1,4 @@
-package cn.jzyan.oauth2.entity;
+package cn.jzyan.oauth2.entity.client;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.provider.ClientDetails;

@@ -1,7 +1,7 @@
 package cn.jzyan.oauth2.controller;
 
 import cn.jzyan.bean.BaseResponse;
-import cn.jzyan.oauth2.entity.LoginRequest;
+import cn.jzyan.oauth2.entity.auth.LoginRequest;
 import cn.jzyan.oauth2.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

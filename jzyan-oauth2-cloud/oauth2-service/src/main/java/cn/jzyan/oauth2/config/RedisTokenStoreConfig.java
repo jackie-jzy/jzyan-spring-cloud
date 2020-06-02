@@ -2,7 +2,6 @@ package cn.jzyan.oauth2.config;
 
 import cn.jzyan.bean.constant.Constants;
 import cn.jzyan.oauth2.enhancer.CustomTokenEnhancer;
-import cn.jzyan.oauth2.service.RedisAuthorizationCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
