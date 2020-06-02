@@ -47,15 +47,13 @@ public class AuthorityInterceptor extends HandlerInterceptorAdapter {
                 if (sessionUser != null) {
                     SessionContext.getContext().set(Constants.Oauth.AUTHP_USER_AP_PREFIX, sessionUser);
                 } else {
-                    log.info("获取用户session信息---------------为null");
+                    log.info("获取用户sessionUser信息---------------为null");
                     throw new SessionException(BaseErrorCodeEnum.ERROR_501);
                 }
             } else {
-                log.info("获取用户session信息---------------异常:{}", baseResponse.getMessage());
+                log.info("获取用户sessionUser信息---------------异常:{}", baseResponse.getMessage());
                 throw new SessionException(BaseErrorCodeEnum.ERROR_501);
             }
-        } else {
-            log.info("获取authorization信息---------------为null");
         }
         return true;
     }
