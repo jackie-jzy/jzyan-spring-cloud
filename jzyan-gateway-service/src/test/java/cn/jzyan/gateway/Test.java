@@ -21,9 +21,9 @@ import java.util.Map;
 public class Test {
 
     @org.junit.jupiter.api.Test
-    public void test(){
+    public void test() {
         Map<String, String> args = new HashMap<>();
-        args.put("pattern","/auth/**");
+        args.put("pattern", "/auth/**");
 
         List<PredicateDefinition> predicates = new ArrayList<>();
 

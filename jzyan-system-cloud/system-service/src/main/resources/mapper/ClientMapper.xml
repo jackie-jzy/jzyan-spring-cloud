@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jzyan.system.mapper.ClientMapper">
+
+    <select id="page" resultType="cn.jzyan.system.bean.client.ClientDetail">
+        SELECT
+        *
+        FROM system_user
+        WHERE 1 = 1
+        <if test="client.clientId != null and user.clientId != ''">
+            AND client_id = #{client.clientId}
+        </if>
+        <if test="client.status != null">
+            AND status = #{client.status}
+        </if>
+        order by create_time DESC
+    </select>
+
+
+</mapper>

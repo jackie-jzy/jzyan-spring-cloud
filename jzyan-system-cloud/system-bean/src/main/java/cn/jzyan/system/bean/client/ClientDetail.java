@@ -1,8 +1,8 @@
-package cn.jzyan.oauth2.entity.client;
+package cn.jzyan.system.bean.client;
 
+import cn.jzyan.bean.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-
-import javax.persistence.*;
 
 /**
  * @ProjectName : jzyan-spring-cloud
@@ -14,13 +14,11 @@ import javax.persistence.*;
  * @CreateDate : 2020/04/29 9:52
  */
 @Data
-@Entity
-@Table(name = "system_client")
-public class ClientDetail{
+@TableName("system_client")
+public class ClientDetail extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private static final long serialVersionUID = 3176059574473063452L;
+
     private String clientId;
     private String resourceIds;
     private String clientSecret;

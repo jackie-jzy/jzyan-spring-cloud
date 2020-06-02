@@ -1,6 +1,7 @@
 package cn.jzyan.system.service.impl;
 
 import cn.jzyan.bean.BaseResponse;
+import cn.jzyan.global.utils.SessionUtil;
 import cn.jzyan.system.bean.user.dto.AdminUserDTO;
 import cn.jzyan.system.bean.user.vo.AdminUserVO;
 import cn.jzyan.system.entity.RestResponse;
@@ -28,6 +29,8 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private SessionUtil sessionUtil;
 
     /**
      * 分页

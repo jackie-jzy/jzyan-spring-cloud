@@ -1,6 +1,5 @@
 package cn.jzyan.oauth2.entity.user;
 
-import cn.jzyan.oauth2.entity.BaseEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,8 +16,11 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "system_user")
-public class AdminUser extends BaseEntity{
+public class AdminUser{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String password;
     private String username;
     private String name;

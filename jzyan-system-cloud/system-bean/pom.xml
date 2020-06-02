@@ -18,6 +18,11 @@
             <artifactId>base-bean</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-annotation</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
 </project>

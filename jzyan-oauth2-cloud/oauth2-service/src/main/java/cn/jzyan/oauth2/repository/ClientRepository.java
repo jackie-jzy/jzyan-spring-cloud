@@ -16,6 +16,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClientRepository extends JpaRepository<ClientDetail, Integer> {
 
-    ClientDetail findByClientId(String clientId);
+    ClientDetail findByClientIdAndStatus(String clientId, Integer status);
 
 }

@@ -28,9 +28,9 @@ public class GatewayDefineServiceTest extends GatewayServiceApplicationTests {
 
 
     @Test
-    public void saveTest(){
+    public void saveTest() {
         Map<String, String> args = new HashMap<>();
-        args.put("pattern","/auth/**");
+        args.put("pattern", "/auth/**");
 
         List<PredicateDefinition> predicates = new ArrayList<>();
 
@@ -48,9 +48,9 @@ public class GatewayDefineServiceTest extends GatewayServiceApplicationTests {
     }
 
     @Test
-    public void updateTest(){
+    public void updateTest() {
         Map<String, String> args = new HashMap<>();
-        args.put("pattern","/auth/**");
+        args.put("pattern", "/auth/**");
 
         List<PredicateDefinition> predicates = new ArrayList<>();
 

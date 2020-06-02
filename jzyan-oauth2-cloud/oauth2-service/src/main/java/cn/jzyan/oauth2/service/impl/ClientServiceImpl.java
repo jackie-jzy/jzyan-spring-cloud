@@ -32,12 +32,12 @@ public class ClientServiceImpl implements ClientDetailsService {
 
     @Override
     public ClientDetails loadClientByClientId(String clientId) throws ClientRegistrationException {
-        ClientDetail clientDetail = clientRepository.findByClientId(clientId);
-        BaseClientDetails baseClientDetails = new BaseClientDetails();
-        this.getBaseClientDetails(clientDetail, baseClientDetails);
+        ClientDetail clientDetail = clientRepository.findByClientIdAndStatus(clientId, 0);
         if (clientDetail == null) {
             throw new ClientRegistrationException("-------------invalid_client");
         }
+        BaseClientDetails baseClientDetails = new BaseClientDetails();
+        this.getBaseClientDetails(clientDetail, baseClientDetails);
         return baseClientDetails;
     }
 
@@ -62,7 +62,9 @@ public class ClientServiceImpl implements ClientDetailsService {
             userClient.setResourceIds(Arrays.asList(clientDetail.getResourceIds().split(",")));
         }
         userClient.setAuthorizedGrantTypes(Arrays.asList(clientDetail.getAuthorizedGrantTypes().split(",")));
-        userClient.setRegisteredRedirectUri(new HashSet<>(Arrays.asList(clientDetail.getRegisteredRedirectUris().split(","))));
+        if (clientDetail.getRegisteredRedirectUris() != null) {
+            userClient.setRegisteredRedirectUri(new HashSet<>(Arrays.asList(clientDetail.getRegisteredRedirectUris().split(","))));
+        }
         userClient.setAccessTokenValiditySeconds(clientDetail.getAccessTokenValiditySeconds());
         userClient.setRefreshTokenValiditySeconds(clientDetail.getRefreshTokenValiditySeconds());
         if (clientDetail.getAdditionalInformation() != null) {

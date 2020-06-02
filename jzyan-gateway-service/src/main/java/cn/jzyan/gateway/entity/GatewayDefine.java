@@ -23,7 +23,7 @@ import java.util.List;
 public class GatewayDefine implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String routeId;

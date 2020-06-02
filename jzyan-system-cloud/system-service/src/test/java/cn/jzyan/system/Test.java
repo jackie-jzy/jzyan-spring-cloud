@@ -14,7 +14,7 @@ import org.apache.commons.lang.ArrayUtils;
 public class Test {
 
     @org.junit.jupiter.api.Test
-    public void test(){
+    public void test() {
         String values = "1 3 5 ";
         String[] token = values.split("[\\s+]");
         System.out.println(ArrayUtils.toString(token));

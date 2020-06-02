@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = "${oauth2-service.name}", fallback = SessionClientFallback.class)
 public interface SessionClient {
 
-    @GetMapping("/session/user/info")
+    @GetMapping("/auth/session/user/info")
     BaseResponse<SessionUser> getUserInfo(@RequestParam String authorization);
 
 }

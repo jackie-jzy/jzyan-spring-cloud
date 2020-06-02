@@ -11,7 +11,7 @@ spring:
     host: localhost
     database: 0
   datasource:
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/blogger?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: 12345678
@@ -39,7 +39,7 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: trace
 
 oauth2:
-  clientId: rebbon_client
+  clientId: system_client
 
 jwt:
   signing:

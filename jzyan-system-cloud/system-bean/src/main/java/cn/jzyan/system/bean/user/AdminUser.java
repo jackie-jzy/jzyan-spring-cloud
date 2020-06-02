@@ -1,6 +1,7 @@
 package cn.jzyan.system.bean.user;
 
 import cn.jzyan.bean.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
@@ -13,6 +14,7 @@ import lombok.Data;
  * @CreateDate : 2020/04/24 14:57
  */
 @Data
+@TableName("system_user")
 public class AdminUser extends BaseEntity {
 
     private String username;
