@@ -1,6 +1,9 @@
 package cn.jzyan.global.aspect;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializer;
 import lombok.extern.slf4j.Slf4j;
 import nl.bitwalker.useragentutils.Browser;
 import nl.bitwalker.useragentutils.OperatingSystem;
@@ -15,6 +18,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 /**
@@ -30,6 +35,9 @@ import java.util.UUID;
 @Aspect
 @Component
 public class WebLogAspect {
+
+    private Gson gson = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, (JsonSerializer<LocalDateTime>) (src, typeOfSrc, context) -> new JsonPrimitive(src.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))).create();
+
     /**
      * controller 层出入参日志记录
      *
@@ -67,8 +75,8 @@ public class WebLogAspect {
          */
         log.info("\n\t[LOG-START]\n\tRequestMark: {}\n\tRequestIP: {}\n\tSystem: {}\n\tBrowserName: {}\n\tContentType:{}\n\tRequestUrl: {}\n\t" +
                         "RequestMethod: {}\n\tRequestParams: {}\n\tTargetClassAndMethod: {}#{}\n\tResponseParams: {}\n\t[LOG-END]", uuid, request.getRemoteAddr(), system, browserName,
-                request.getHeader("Content-Type"), request.getRequestURL(), request.getMethod(), new Gson().toJson(joinPoint.getArgs()),
-                method.getDeclaringClass().getName(), method.getName(), new Gson().toJson(result));
+                request.getHeader("Content-Type"), request.getRequestURL(), request.getMethod(), gson.toJson(joinPoint.getArgs()),
+                method.getDeclaringClass().getName(), method.getName(), gson.toJson(result));
         return result;
 
     }

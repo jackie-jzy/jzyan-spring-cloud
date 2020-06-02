@@ -1,18 +1,15 @@
 package cn.jzyan.global.config;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.StdDateFormat;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.format.Formatter;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 /**
  * @ProjectName : jzyan-base-package
@@ -29,43 +26,31 @@ public class GlobalDateFormatConfig {
     /**
      * 获取日期格式化的工具类
      */
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss") {
-
-        //根据实际业务支持各种复杂格式的日期字符串。
-        @Override
-        public Date parse(String source) {
-            try {
-                //支持解析指定pattern类型。
-                return super.parse(source);
-            } catch (Exception e) {
-                try {
-                    //支持解析long类型的时间戳
-                    return new StdDateFormat().parse(source);
-                } catch (ParseException e1) {
-                    throw new RuntimeException("日期格式非法：" + e);
-                }
-            }
-        }
-    };
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
 
 
-    /**
-     * JSON消息处理器
-     */
     @Bean
-    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
-        MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
-        //设置解析JSON工具类
-        ObjectMapper objectMapper = new ObjectMapper();
-        //设置解析日期的工具类
-        objectMapper.setDateFormat(dateFormat);
-        //忽略未知属性 防止解析报错
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        jsonConverter.setObjectMapper(objectMapper);
-        List<MediaType> list = new ArrayList<>();
-        list.add(MediaType.APPLICATION_JSON);
-        jsonConverter.setSupportedMediaTypes(list);
-        return jsonConverter;
+    public Formatter<LocalDateTime> localDateFormatter() {
+        return new Formatter<LocalDateTime>() {
+            @Override
+            public LocalDateTime parse(String text, Locale locale) {
+                return LocalDateTime.parse(text, FORMATTER);
+            }
+
+            @Override
+            public String print(LocalDateTime object, Locale locale) {
+                return object.format(FORMATTER);
+            }
+        };
+    }
+
+    @Bean
+    public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
+        return jacksonObjectMapperBuilder -> jacksonObjectMapperBuilder
+                // 反序列化
+                .deserializerByType(LocalDateTime.class, new LocalDateTimeDeserializer(FORMATTER))
+                // 序列化
+                .serializerByType(LocalDateTime.class, new LocalDateTimeSerializer(FORMATTER));
     }
 
 }

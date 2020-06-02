@@ -3,6 +3,7 @@ package cn.jzyan.oauth2.entity.user;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * @ProjectName : jzyan-spring-cloud
@@ -28,5 +29,9 @@ public class AdminUser{
     private Integer status;
     private Integer mark;
     private Integer platform;
+    private String createUser;
+    private String updateUser;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
 
 }

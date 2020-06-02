@@ -3,6 +3,7 @@ package cn.jzyan.oauth2.entity.client;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * @ProjectName : jzyan-spring-cloud
@@ -33,5 +34,9 @@ public class ClientDetail{
     private String additionalInformation;
     private String autoApproveScopes;
     private Integer status;
+    private String createUser;
+    private String updateUser;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
 
 }
