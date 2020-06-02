@@ -1,15 +1,20 @@
 package cn.jzyan.system.interceptor;
 
-/**
- * Created by dandan on 2019/4/15.
- */
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * @ProjectName : jzyan-system-package
+ * @FileName : WebConfigurer
+ * @Version : 1.0.0
+ * @Package : cn.jzyan.system.interceptor
+ * @Description : WebConfigurer
+ * @Author : jzyan
+ * @CreateDate : 2020/04/24 14:09
+ */
 @Configuration
 public class WebConfigurer implements WebMvcConfigurer {
 

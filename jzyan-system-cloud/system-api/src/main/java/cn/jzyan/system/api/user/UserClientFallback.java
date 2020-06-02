@@ -2,8 +2,8 @@ package cn.jzyan.system.api.user;
 
 import cn.jzyan.bean.BaseResponse;
 import cn.jzyan.bean.constant.BaseErrorCodeEnum;
-import cn.jzyan.system.bean.user.dto.UserDTO;
-import cn.jzyan.system.bean.user.vo.UserVO;
+import cn.jzyan.system.bean.user.dto.AdminUserDTO;
+import cn.jzyan.system.bean.user.vo.AdminUserVO;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -22,12 +22,12 @@ public class UserClientFallback implements UserClient {
 
 
     @Override
-    public BaseResponse<UserVO> get(Integer id) {
+    public BaseResponse<AdminUserVO> get(Integer id) {
         return new BaseResponse<>(BaseErrorCodeEnum.FAIL);
     }
 
     @Override
-    public BaseResponse<List<UserVO>> page(UserDTO userDTO) {
+    public BaseResponse<List<AdminUserVO>> page(AdminUserDTO userDTO) {
         return new BaseResponse<>(BaseErrorCodeEnum.FAIL);
     }
 

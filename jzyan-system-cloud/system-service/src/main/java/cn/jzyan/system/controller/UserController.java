@@ -1,14 +1,14 @@
 package cn.jzyan.system.controller;
 
 import cn.jzyan.bean.BaseResponse;
-import cn.jzyan.system.bean.user.dto.UserDTO;
-import cn.jzyan.system.bean.user.vo.UserVO;
+import cn.jzyan.system.bean.user.dto.AdminUserDTO;
+import cn.jzyan.system.bean.user.vo.AdminUserVO;
 import cn.jzyan.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @ProjectName : jzyan-system-cloud
@@ -20,25 +20,15 @@ import java.util.List;
  * @CreateDate : 2020/03/26 14:11
  */
 @RestController
-@RequestMapping("/system/user/")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("get")
-    public BaseResponse<UserVO> get(@RequestParam Integer id) {
-        return userService.get(id);
-    }
-
-    @PostMapping("page")
-    public BaseResponse<List<UserVO>> page(@RequestBody UserDTO userDTO) {
-        return userService.userDTO(userDTO);
-    }
-
-    @GetMapping("getCurrentUser")
-    public Object getCurrentUser(Authentication authentication) {
-        return authentication;
+    @PostMapping("/admin/page")
+    public BaseResponse<AdminUserVO> adminPage(@RequestBody AdminUserDTO adminUserDTO) {
+        return userService.adminPage(adminUserDTO);
     }
 
 }

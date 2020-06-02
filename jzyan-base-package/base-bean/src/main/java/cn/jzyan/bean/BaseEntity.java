@@ -1,6 +1,7 @@
 package cn.jzyan.bean;
 
-import java.io.Serializable;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
 /**
@@ -12,62 +13,12 @@ import java.time.LocalDateTime;
  * @Author : jzyan
  * @CreateDate : 2020/04/24 17:48
  */
-public class BaseEntity implements Serializable {
+@Data
+public class BaseEntity extends TopLevelEntity {
 
-    private Integer id;
     private String createUser;
     private String updateUser;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser;
-    }
-
-    public String getUpdateUser() {
-        return updateUser;
-    }
-
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser;
-    }
-
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-    }
-
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        return "BaseEntity{" +
-                "id=" + id +
-                ", createUser='" + createUser + '\'' +
-                ", updateUser='" + updateUser + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
-    }
 }

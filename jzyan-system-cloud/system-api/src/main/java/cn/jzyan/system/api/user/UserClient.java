@@ -1,8 +1,8 @@
 package cn.jzyan.system.api.user;
 
 import cn.jzyan.bean.BaseResponse;
-import cn.jzyan.system.bean.user.dto.UserDTO;
-import cn.jzyan.system.bean.user.vo.UserVO;
+import cn.jzyan.system.bean.user.dto.AdminUserDTO;
+import cn.jzyan.system.bean.user.vo.AdminUserVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,9 +24,9 @@ import java.util.List;
 public interface UserClient {
 
     @GetMapping("/system/user/get")
-    BaseResponse<UserVO> get(@RequestParam Integer id);
+    BaseResponse<AdminUserVO> get(@RequestParam Integer id);
 
     @PostMapping("/system/user/page")
-    BaseResponse<List<UserVO>> page(@RequestBody UserDTO userDTO);
+    BaseResponse<List<AdminUserVO>> page(@RequestBody AdminUserDTO userDTO);
 
 }

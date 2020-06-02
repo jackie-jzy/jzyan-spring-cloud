@@ -1,6 +1,5 @@
 package cn.jzyan.system.interceptor;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -9,11 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 权限拦截器
- *
- * @author wudandan
+ * @ProjectName : jzyan-base-package
+ * @FileName : AuthorityInterceptor
+ * @Version : 1.0.0
+ * @Package : cn.jzyan.global.interceptor
+ * @Description : 获取session
+ * @Author : jzyan
+ * @CreateDate : 2020/04/24 14:09
  */
-@Slf4j
 @Component
 public class AuthorityInterceptor extends HandlerInterceptorAdapter {
 

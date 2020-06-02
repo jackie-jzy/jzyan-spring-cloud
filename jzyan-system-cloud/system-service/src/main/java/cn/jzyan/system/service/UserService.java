@@ -2,10 +2,8 @@ package cn.jzyan.system.service;
 
 
 import cn.jzyan.bean.BaseResponse;
-import cn.jzyan.system.bean.user.dto.UserDTO;
-import cn.jzyan.system.bean.user.vo.UserVO;
-
-import java.util.List;
+import cn.jzyan.system.bean.user.dto.AdminUserDTO;
+import cn.jzyan.system.bean.user.vo.AdminUserVO;
 
 /**
  * @ProjectName : jzyan-system-cloud
@@ -18,7 +16,11 @@ import java.util.List;
  */
 public interface UserService {
 
-    BaseResponse<UserVO> get(Integer id);
-
-    BaseResponse<List<UserVO>> userDTO(UserDTO userDTO);
+    /**
+     * 分页
+     *
+     * @param adminUserDTO
+     * @return
+     */
+    BaseResponse<AdminUserVO> adminPage(AdminUserDTO adminUserDTO);
 }

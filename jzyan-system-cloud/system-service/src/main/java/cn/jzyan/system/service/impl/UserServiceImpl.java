@@ -1,17 +1,16 @@
 package cn.jzyan.system.service.impl;
 
 import cn.jzyan.bean.BaseResponse;
-import cn.jzyan.system.bean.constant.ErrorCodeEnum;
-import cn.jzyan.system.bean.user.dto.UserDTO;
-import cn.jzyan.system.bean.exception.UserException;
-import cn.jzyan.system.bean.user.vo.UserVO;
+import cn.jzyan.system.bean.user.dto.AdminUserDTO;
+import cn.jzyan.system.bean.user.vo.AdminUserVO;
 import cn.jzyan.system.entity.RestResponse;
+import cn.jzyan.system.mapper.UserMapper;
 import cn.jzyan.system.service.UserService;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  * @ProjectName : jzyan-system-cloud
@@ -25,33 +24,22 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Override
-    public BaseResponse<UserVO> get(Integer id) {
-        if (id == 1) {
-            throw new NullPointerException();
-        }
-        if (id == 2) {
-            throw new UserException(ErrorCodeEnum.ERROR_500);
-        }
-        UserVO userVO = new UserVO();
-        userVO.setId(id);
-        userVO.setName("jzyan");
-        userVO.setCreateTime(new Date());
-        return new RestResponse(userVO);
-    }
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
+    /**
+     * 分页
+     *
+     * @param adminUserDTO
+     * @return
+     */
     @Override
-    public BaseResponse<List<UserVO>> userDTO(UserDTO userDTO) {
-        UserVO userVO = new UserVO();
-        userVO.setId(1);
-        userVO.setName(userDTO.getName());
-        UserVO userVO2 = new UserVO();
-        userVO2.setId(2);
-        userVO2.setName(userDTO.getName());
-        List<UserVO> list = new ArrayList<>(2);
-        list.add(userVO);
-        list.add(userVO2);
-        return new RestResponse(list);
+    public BaseResponse<AdminUserVO> adminPage(AdminUserDTO adminUserDTO) {
+        Page page = new Page(adminUserDTO.getPage().getPageNum(), adminUserDTO.getPage().getPageSize());
+        IPage<AdminUserVO> content = userMapper.adminPage(page, adminUserDTO);
+        return new RestResponse(content);
     }
 
 }

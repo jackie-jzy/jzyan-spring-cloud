@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jzyan.system.mapper.UserMapper">
+
+    <select id="adminPage" resultType="cn.jzyan.system.bean.user.vo.AdminUserVO">
+        SELECT
+        id,
+        username,
+        password,
+        name,
+        mobile,
+        platform,
+        CASE platform
+        WHEN 1 THEN '后台'
+        ELSE '中台'
+        END platformStr,
+        status,
+        CASE status
+        WHEN 1 THEN '有效'
+        ELSE '无效'
+        END statusStr,
+        mark,
+        remarks,
+        create_user createUser,
+        update_user updateUser,
+        create_time createTime,
+        update_time updateTime
+        FROM system_user
+        WHERE 1 = 1
+        <if test="user.username != null and user.username != ''">
+            AND username = #{user.username}
+        </if>
+        <if test="user.mobile != null and user.mobile != ''">
+            AND mobile = #{user.mobile}
+        </if>
+        <if test="user.status != null">
+            AND status = #{user.status}
+        </if>
+        <if test="user.platform != null">
+            AND platform = #{user.platform}
+        </if>
+        order by create_time DESC
+    </select>
+
+
+</mapper>
