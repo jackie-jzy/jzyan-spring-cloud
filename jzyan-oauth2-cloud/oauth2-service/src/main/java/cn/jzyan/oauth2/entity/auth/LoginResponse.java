@@ -6,9 +6,9 @@ import java.io.Serializable;
 
 /**
  * @ProjectName : jzyan-spring-cloud
- * @FileName : LoginVO
+ * @FileName : LoginResponse
  * @Version : 1.0.0
- * @Package : cn.jzyan.oauth2.entity
+ * @Package : cn.jzyan.oauth2.entity.auth
  * @Description : 登录成功出参
  * @Author : jzyan
  * @CreateDate : 2020/05/23 16:11

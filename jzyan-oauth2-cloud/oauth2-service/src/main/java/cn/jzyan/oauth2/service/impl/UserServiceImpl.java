@@ -21,8 +21,8 @@ import java.util.HashSet;
  * @Author : jzyan
  * @CreateDate : 2020/04/27 17:26
  */
-@Service("UserDetailsServiceImpl")
-public class UserDetailsServiceImpl implements UserDetailsService, UserService {
+@Service("UserServiceImpl")
+public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Autowired
     private UserRepository userRepository;

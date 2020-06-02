@@ -54,7 +54,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
-    @Qualifier("ClientDetailsServiceImpl")
+    @Qualifier("ClientServiceImpl")
     private ClientDetailsService clientDetailsService;
     @Autowired
     private JwtAccessTokenConverter jwtAccessTokenConverter;

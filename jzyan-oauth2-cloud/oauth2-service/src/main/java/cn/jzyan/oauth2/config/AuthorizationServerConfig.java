@@ -45,10 +45,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired
-    @Qualifier("UserDetailsServiceImpl")
+    @Qualifier("UserServiceImpl")
     private UserDetailsService userService;
     @Autowired
-    @Qualifier("ClientDetailsServiceImpl")
+    @Qualifier("ClientServiceImpl")
     private ClientDetailsService clientDetailsService;
     @Autowired
     @Qualifier("redisTokenStore")

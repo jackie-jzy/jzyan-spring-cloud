@@ -1,5 +1,6 @@
 package cn.jzyan.oauth2.entity.user;
 
+import cn.jzyan.oauth2.entity.BaseEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import javax.persistence.*;
  * @ProjectName : jzyan-spring-cloud
  * @FileName : User
  * @Version : 1.0.0
- * @Package : cn.jzyan.oauth2.model
+ * @Package : cn.jzyan.oauth2.entity.user
  * @Description : 用户
  * @Author : jzyan
  * @CreateDate : 2020/05/22 15:34
@@ -16,11 +17,8 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "system_user")
-public class AdminUser {
+public class AdminUser extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     private String password;
     private String username;
     private String name;
