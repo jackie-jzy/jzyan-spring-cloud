@@ -1,8 +1,8 @@
 package cn.jzyan.oauth2.controller;
 
 import cn.jzyan.bean.BaseResponse;
+import cn.jzyan.bean.SessionUser;
 import cn.jzyan.bean.constant.Constants;
-import cn.jzyan.oauth2.bean.session.SessionUser;
 import cn.jzyan.oauth2.entity.RestResponse;
 import cn.jzyan.oauth2.entity.user.AdminUser;
 import cn.jzyan.oauth2.service.UserService;

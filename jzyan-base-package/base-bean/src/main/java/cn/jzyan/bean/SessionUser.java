@@ -1,6 +1,5 @@
-package cn.jzyan.oauth2.bean.session;
+package cn.jzyan.bean;
 
-import cn.jzyan.bean.BaseEntity;
 import lombok.Data;
 
 /**

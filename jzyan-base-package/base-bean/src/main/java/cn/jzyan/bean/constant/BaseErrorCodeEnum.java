@@ -12,7 +12,9 @@ package cn.jzyan.bean.constant;
 public enum BaseErrorCodeEnum {
 
     SUCCESS(200, "SUCCESS"),
-    FAIL(500, "服务器异常");
+    FAIL(500, "服务器异常"),
+    ERROR_501(501, "获取session异常"),
+    ERROR_502(502, "获取authorization异常");
 
     private int errCode;
     private String errMsg;

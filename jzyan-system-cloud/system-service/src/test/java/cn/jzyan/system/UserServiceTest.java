@@ -23,6 +23,6 @@ public class UserServiceTest extends SystemServiceApplicationTests {
     @Test
     public void pageTest() {
         AdminUserDTO adminUserDTO = new AdminUserDTO();
-        System.out.println(JSON.toJSONString(userService.page(adminUserDTO)));
+        System.out.println(JSON.toJSONString(userService.adminPage(adminUserDTO)));
     }
 }

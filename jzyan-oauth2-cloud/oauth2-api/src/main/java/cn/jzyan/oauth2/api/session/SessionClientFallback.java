@@ -1,8 +1,8 @@
 package cn.jzyan.oauth2.api.session;
 
 import cn.jzyan.bean.BaseResponse;
+import cn.jzyan.bean.SessionUser;
 import cn.jzyan.bean.constant.BaseErrorCodeEnum;
-import cn.jzyan.oauth2.bean.session.SessionUser;
 import org.springframework.stereotype.Component;
 
 /**

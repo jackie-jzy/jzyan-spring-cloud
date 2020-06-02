@@ -37,3 +37,6 @@ eureka:
 logging:
   level:
     cn.jzyan.system: debug
+
+oauth2-service:
+  name: oauth2-service
