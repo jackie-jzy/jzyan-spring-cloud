@@ -23,7 +23,11 @@ public class SessionUtil {
      * @return
      */
     public SessionUser getUserInfo() {
-        return (SessionUser) SessionContext.getContext().get(Constants.Oauth.AUTHP_USER_AP_PREFIX);
+        Object object = SessionContext.getContext().get(Constants.Oauth.AUTHP_USER_AP_PREFIX);
+        if (object != null) {
+            return (SessionUser) object;
+        }
+        return new SessionUser();
     }
 
     /**
