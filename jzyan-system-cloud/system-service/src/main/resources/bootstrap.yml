@@ -1,42 +1,10 @@
-server:
-  port: 8004
-  servlet:
-    context-path: /system
-
 spring:
+  profiles:
+    active: @profileActive@
   application:
-    name: user-service
-  redis:
-    # redis相关配置
-    host: localhost
-    database: 0
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blogger?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-    username: root
-    password: 12345678
-
-mybatis-plus:
-  global-config:
-    db-config:
-      id-type: auto
-      table-underline: true
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://root:root@replica1:8101/eureka/,http://root:root@replica2:8102/eureka/
-  instance:
-    preferIpAddress: true
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
-
-logging:
-  level:
-    cn.jzyan.system: debug
-
-oauth2-service:
-  name: oauth2-service
+    name: @artifactId@
+  cloud:
+    nacos:
+        config:
+          server-addr: localhost:8848
+          file-extension: yaml

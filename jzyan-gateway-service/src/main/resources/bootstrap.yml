@@ -1,66 +1,11 @@
-server:
-  port: 8007
-
 spring:
+  profiles:
+    active: @profileActive@
   application:
-    name: gateway-service
-  redis:
-    host: localhost
-    database: 0
-  datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blogger?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-    username: root
-    password: 12345678
+    name: @artifactId@
   cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-#      routes:
-#        # 路由的ID
-#        - id: ribbon_route
-#          # 匹配后路由地址
-#          uri: lb://ribbon-local-service
-#          predicates:
-#            # 断言，路径相匹配的进行路由
-#            - Path=/ribbon/**
-#          filters:
-#            - name: RequestRateLimiter
-#              args:
-#                # 每秒允许处理的请求数量
-#                redis-rate-limiter.replenishRate: 1
-#                # 每秒最大处理的请求数量
-#                redis-rate-limiter.burstCapacity: 2
-#                # 限流策略，对应策略的Bean
-#                key-resolver: '#{@ipKeyResolver}'
-#            - name: Hystrix
-#              args:
-#                name: fallbackcmd
-#                fallback-uri: forward:/fallback
-#            - name: Retry
-#              args:
-#                retries: 1 #需要进行重试的次数
-#                statuses: BAD_GATEWAY #返回哪个状态码需要进行重试，返回状态码为5XX进行重试
-#                backoff:
-#                  firstBackoff: 10ms
-#                  maxBackoff: 50ms
-#                  factor: 2
-#                  basedOnPreviousValue: false
-
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://root:root@replica1:8101/eureka/,http://root:root@replica2:8102/eureka/
-  instance:
-    preferIpAddress : true
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
-
-logging:
-  level:
-    org.springframework.cloud.gateway: debug
-
-
+    nacos:
+        config:
+          server-addr: localhost:8848
+          file-extension: yaml
+          group: GATEWAY_GROUP

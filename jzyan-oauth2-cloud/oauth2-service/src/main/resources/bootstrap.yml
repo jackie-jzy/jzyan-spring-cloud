@@ -1,46 +1,11 @@
-server:
-  port: 8005
-  servlet:
-    context-path: /auth
-
 spring:
+  profiles:
+    active: @profileActive@
   application:
-    name: oauth2-service
-  redis:
-    # redis相关配置
-    host: localhost
-    database: 0
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blogger?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-    username: root
-    password: 12345678
-  jpa:
-    database: MySQL
-    generate-ddl: true
-    hibernate.ddl-auto: update
-
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://root:root@replica1:8101/eureka/,http://root:root@replica2:8102/eureka/
-  instance:
-    preferIpAddress : true
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
-
-logging:
-  level:
-    org.springframework.security: DEBUG
-    org.hibernate.SQL: debug
-    org.hibernate.engine.QueryParameters: debug
-    org.hibernate.engine.query.HQLQueryPlan: debug
-    org.hibernate.type.descriptor.sql.BasicBinder: trace
-
-oauth2:
-  clientId: system_client
-
-jwt:
-  signing:
-    key: 12345
+    name: @artifactId@
+  cloud:
+    nacos:
+        config:
+          server-addr: localhost:8848
+          file-extension: yaml
+          group: OAUTH2_GROUP
