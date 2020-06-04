@@ -8,6 +8,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -42,6 +43,10 @@ public class AuthSignatureFilter implements GlobalFilter {
             if (queryParams != null) {
                 authorization = queryParams.get(0);
             }
+        }
+        if (!StringUtils.isEmpty(authorization)) {
+            String[] str = authorization.split(" ");
+            authorization = str[1];
         }
         ServerWebExchange build = exchange.mutate().request(exchange.getRequest().mutate().header(HttpHeaders.AUTHORIZATION, authorization).build()).build();
         return chain.filter(build);
