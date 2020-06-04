@@ -1,6 +1,6 @@
 package cn.jzyan.system.bean.user.vo;
 
-import cn.jzyan.system.bean.user.AdminUserDO;
+import cn.jzyan.system.bean.user.AdminUser;
 import lombok.Data;
 
 /**
@@ -13,7 +13,7 @@ import lombok.Data;
  * @CreateDate : 2020/04/24 11:55
  */
 @Data
-public class AdminUserVO extends AdminUserDO {
+public class AdminUserVO extends AdminUser {
 
     private String statusStr;
     private String platformStr;

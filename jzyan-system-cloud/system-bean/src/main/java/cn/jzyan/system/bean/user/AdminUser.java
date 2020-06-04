@@ -21,5 +21,7 @@ public class AdminUser extends BaseEntity {
     private String mobile;
     private Integer status;
     private Integer platform;
+    private String password;
+    private Integer mark;
 
 }

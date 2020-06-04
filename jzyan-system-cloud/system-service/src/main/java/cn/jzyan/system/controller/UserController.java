@@ -1,14 +1,12 @@
 package cn.jzyan.system.controller;
 
 import cn.jzyan.bean.BaseResponse;
+import cn.jzyan.system.bean.user.AdminUser;
 import cn.jzyan.system.bean.user.dto.AdminUserDTO;
 import cn.jzyan.system.bean.user.vo.AdminUserVO;
 import cn.jzyan.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ProjectName : jzyan-system-cloud
@@ -29,6 +27,11 @@ public class UserController {
     @PostMapping("/admin/page")
     public BaseResponse<AdminUserVO> adminPage(@RequestBody AdminUserDTO adminUserDTO) {
         return userService.adminPage(adminUserDTO);
+    }
+
+    @GetMapping("/admin/get")
+    public BaseResponse<AdminUser> getById(@RequestParam Integer id) {
+        return userService.getById(id);
     }
 
 }

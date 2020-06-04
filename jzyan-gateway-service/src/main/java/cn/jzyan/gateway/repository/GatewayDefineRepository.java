@@ -35,4 +35,6 @@ public interface GatewayDefineRepository extends JpaRepository<GatewayDefine, In
     @Override
     Optional<GatewayDefine> findById(Integer id);
 
+    @Override
+    GatewayDefine getOne(Integer integer);
 }

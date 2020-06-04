@@ -1,7 +1,9 @@
 package cn.jzyan.gateway.service.impl;
 
+import cn.jzyan.bean.BaseResponse;
 import cn.jzyan.bean.utils.BeanUtil;
 import cn.jzyan.gateway.entity.GatewayDefine;
+import cn.jzyan.gateway.entity.RestResponse;
 import cn.jzyan.gateway.repository.GatewayDefineRepository;
 import cn.jzyan.gateway.repository.RedisRouteDefinitionRepository;
 import cn.jzyan.gateway.service.GatewayDefineService;
@@ -44,33 +46,36 @@ public class GatewayDefineServiceImpl implements GatewayDefineService {
     }
 
     @Override
-    public void save(GatewayDefine gatewayDefine) {
+    public BaseResponse save(GatewayDefine gatewayDefine) {
         gatewayDefine = gatewayDefineRepository.save(gatewayDefine);
         try {
             this.saveRouteDefinitionToRedis(gatewayDefine);
         } catch (URISyntaxException e) {
             log.error("URISyntax-----------------异常:{}", e);
         }
+        return new RestResponse();
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void deleteById(Integer id) {
+    public BaseResponse deleteById(Integer id) {
         Optional<GatewayDefine> optional = gatewayDefineRepository.findById(id);
         if (optional.isPresent()) {
             GatewayDefine gatewayDefine = optional.get();
             routeDefinitionWriter.delete(Mono.just(gatewayDefine.getRouteId())).subscribe();
         }
         gatewayDefineRepository.deleteById(id);
+        return new RestResponse();
     }
 
     @Override
-    public boolean existsById(Integer id) {
-        return gatewayDefineRepository.existsById(id);
+    public BaseResponse<Boolean> existsById(Integer id) {
+        boolean b = gatewayDefineRepository.existsById(id);
+        return new RestResponse<>(b);
     }
 
     @Override
-    public void update(GatewayDefine gatewayDefine) {
+    public BaseResponse update(GatewayDefine gatewayDefine) {
         Optional<GatewayDefine> optional = gatewayDefineRepository.findById(gatewayDefine.getId());
         if (optional.isPresent()) {
             GatewayDefine gatewayDefineUpdate = optional.get();
@@ -82,6 +87,7 @@ public class GatewayDefineServiceImpl implements GatewayDefineService {
             }
             gatewayDefineRepository.save(gatewayDefineUpdate);
         }
+        return new RestResponse();
     }
 
     /**
@@ -106,6 +112,12 @@ public class GatewayDefineServiceImpl implements GatewayDefineService {
             definition.setFilters(filterDefinitions);
         }
         routeDefinitionWriter.save(Mono.just(definition)).subscribe();
+    }
+
+    @Override
+    public BaseResponse<GatewayDefine> findById(Integer id) {
+        GatewayDefine gatewayDefine = gatewayDefineRepository.getOne(id);
+        return new RestResponse<>(gatewayDefine);
     }
 
 }

@@ -2,6 +2,7 @@ package cn.jzyan.system.service;
 
 
 import cn.jzyan.bean.BaseResponse;
+import cn.jzyan.system.bean.user.AdminUser;
 import cn.jzyan.system.bean.user.dto.AdminUserDTO;
 import cn.jzyan.system.bean.user.vo.AdminUserVO;
 
@@ -23,4 +24,12 @@ public interface UserService {
      * @return
      */
     BaseResponse<AdminUserVO> adminPage(AdminUserDTO adminUserDTO);
+
+    /**
+     * 根据id获取
+     *
+     * @param id
+     * @return
+     */
+    BaseResponse<AdminUser> getById(Integer id);
 }

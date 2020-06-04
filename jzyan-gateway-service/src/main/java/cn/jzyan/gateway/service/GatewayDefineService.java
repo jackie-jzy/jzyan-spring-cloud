@@ -1,5 +1,6 @@
 package cn.jzyan.gateway.service;
 
+import cn.jzyan.bean.BaseResponse;
 import cn.jzyan.gateway.entity.GatewayDefine;
 
 import java.net.URISyntaxException;
@@ -18,13 +19,16 @@ public interface GatewayDefineService {
 
     List<GatewayDefine> findAll();
 
-    void save(GatewayDefine gatewayDefine);
+    BaseResponse save(GatewayDefine gatewayDefine);
 
-    void deleteById(Integer id);
+    BaseResponse deleteById(Integer id);
 
-    boolean existsById(Integer id);
+    BaseResponse<Boolean> existsById(Integer id);
 
-    void update(GatewayDefine gatewayDefine);
+    BaseResponse update(GatewayDefine gatewayDefine);
 
     void saveRouteDefinitionToRedis(GatewayDefine gatewayDefine) throws URISyntaxException;
+
+    BaseResponse<GatewayDefine> findById(Integer id);
+
 }

@@ -2,6 +2,7 @@ package cn.jzyan.system.service.impl;
 
 import cn.jzyan.bean.BaseResponse;
 import cn.jzyan.global.utils.SessionUtil;
+import cn.jzyan.system.bean.user.AdminUser;
 import cn.jzyan.system.bean.user.dto.AdminUserDTO;
 import cn.jzyan.system.bean.user.vo.AdminUserVO;
 import cn.jzyan.system.entity.RestResponse;
@@ -43,6 +44,18 @@ public class UserServiceImpl implements UserService {
         Page page = new Page(adminUserDTO.getPage().getPageNum(), adminUserDTO.getPage().getPageSize());
         IPage<AdminUserVO> content = userMapper.adminPage(page, adminUserDTO);
         return new RestResponse(content);
+    }
+
+    /**
+     * 根据id获取
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public BaseResponse<AdminUser> getById(Integer id) {
+        AdminUser adminUser = userMapper.selectById(id);
+        return new RestResponse(adminUser);
     }
 
 }
