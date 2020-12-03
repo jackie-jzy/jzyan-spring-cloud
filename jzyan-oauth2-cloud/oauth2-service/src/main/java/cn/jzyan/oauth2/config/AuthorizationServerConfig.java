@@ -1,6 +1,8 @@
 package cn.jzyan.oauth2.config;
 
 import cn.jzyan.oauth2.enhancer.CustomTokenEnhancer;
+import cn.jzyan.oauth2.error.CustomOAuth2AuthenticationEntryPoint;
+import cn.jzyan.oauth2.filter.CustomClientCredentialsTokenEndpointFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
@@ -10,9 +12,11 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.CompositeTokenGranter;
 import org.springframework.security.oauth2.provider.TokenGranter;
+import org.springframework.security.oauth2.provider.client.ClientCredentialsTokenEndpointFilter;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeTokenGranter;
 import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
@@ -85,6 +89,22 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 // 配置token默认行为
                 .tokenServices(getDefaultTokenServices(endpoints));
     }
+
+    /**
+     * 认证服务器的安全配置
+     *
+     * @param security
+     * @throws Exception
+     */
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+        CustomClientCredentialsTokenEndpointFilter customClientCredentialsTokenEndpointFilter = new CustomClientCredentialsTokenEndpointFilter(security);
+        CustomOAuth2AuthenticationEntryPoint oAuth2AuthenticationEntryPoint = new CustomOAuth2AuthenticationEntryPoint();
+        customClientCredentialsTokenEndpointFilter.afterPropertiesSet();
+        customClientCredentialsTokenEndpointFilter.setAuthenticationEntryPoint(oAuth2AuthenticationEntryPoint);
+        security.addTokenEndpointAuthenticationFilter(customClientCredentialsTokenEndpointFilter);
+    }
+
 
     /**
      * 客户端配置
